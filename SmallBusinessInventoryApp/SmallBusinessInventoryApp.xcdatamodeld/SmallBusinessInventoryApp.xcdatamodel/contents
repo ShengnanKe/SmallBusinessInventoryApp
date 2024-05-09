@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="InventoryContainer" representedClassName="InventoryContainer" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="hasItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="InventoryItem" inverseName="toContainer" inverseEntity="InventoryItem"/>
+        <relationship name="toSection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventorySection" inverseName="hasContainers" inverseEntity="InventorySection"/>
+    </entity>
+    <entity name="InventoryItem" representedClassName="InventoryItem" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ownershipStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="tag" optional="YES" attributeType="String"/>
+        <relationship name="toContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryContainer" inverseName="hasItems" inverseEntity="InventoryContainer"/>
+    </entity>
+    <entity name="InventoryLocation" representedClassName="InventoryLocation" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="hasSections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="InventorySection" inverseName="toLocation" inverseEntity="InventorySection"/>
+    </entity>
+    <entity name="InventorySection" representedClassName="InventorySection" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="hasContainers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="InventoryContainer" inverseName="toSection" inverseEntity="InventoryContainer"/>
+        <relationship name="toLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryLocation" inverseName="hasSections" inverseEntity="InventoryLocation"/>
+    </entity>
 </model>
