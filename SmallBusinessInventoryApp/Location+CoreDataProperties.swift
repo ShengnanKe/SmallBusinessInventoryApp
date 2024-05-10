@@ -1,5 +1,5 @@
 //
-//  InventoryLocation+CoreDataProperties.swift
+//  Location+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
 //  Created by KKNANXX on 5/9/24.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension InventoryLocation {
+extension Location {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<InventoryLocation> {
-        return NSFetchRequest<InventoryLocation>(entityName: "InventoryLocation")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Location> {
+        return NSFetchRequest<Location>(entityName: "Location")
     }
 
     @NSManaged public var name: String?
@@ -23,13 +23,13 @@ extension InventoryLocation {
 }
 
 // MARK: Generated accessors for hasSections
-extension InventoryLocation {
+extension Location {
 
     @objc(addHasSectionsObject:)
-    @NSManaged public func addToHasSections(_ value: InventorySection)
+    @NSManaged public func addToHasSections(_ value: Section)
 
     @objc(removeHasSectionsObject:)
-    @NSManaged public func removeFromHasSections(_ value: InventorySection)
+    @NSManaged public func removeFromHasSections(_ value: Section)
 
     @objc(addHasSections:)
     @NSManaged public func addToHasSections(_ values: NSSet)
@@ -39,6 +39,6 @@ extension InventoryLocation {
 
 }
 
-extension InventoryLocation : Identifiable {
+extension Location : Identifiable {
 
 }

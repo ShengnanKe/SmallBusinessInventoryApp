@@ -1,5 +1,5 @@
 //
-//  InventorySection+CoreDataProperties.swift
+//  Section+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
 //  Created by KKNANXX on 5/9/24.
@@ -10,27 +10,27 @@ import Foundation
 import CoreData
 
 
-extension InventorySection {
+extension Section {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<InventorySection> {
-        return NSFetchRequest<InventorySection>(entityName: "InventorySection")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Section> {
+        return NSFetchRequest<Section>(entityName: "Section")
     }
 
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var hasContainers: NSSet?
-    @NSManaged public var toLocation: InventoryLocation?
+    @NSManaged public var toLocation: Location?
 
 }
 
 // MARK: Generated accessors for hasContainers
-extension InventorySection {
+extension Section {
 
     @objc(addHasContainersObject:)
-    @NSManaged public func addToHasContainers(_ value: InventoryContainer)
+    @NSManaged public func addToHasContainers(_ value: Container)
 
     @objc(removeHasContainersObject:)
-    @NSManaged public func removeFromHasContainers(_ value: InventoryContainer)
+    @NSManaged public func removeFromHasContainers(_ value: Container)
 
     @objc(addHasContainers:)
     @NSManaged public func addToHasContainers(_ values: NSSet)
@@ -40,6 +40,6 @@ extension InventorySection {
 
 }
 
-extension InventorySection : Identifiable {
+extension Section : Identifiable {
 
 }

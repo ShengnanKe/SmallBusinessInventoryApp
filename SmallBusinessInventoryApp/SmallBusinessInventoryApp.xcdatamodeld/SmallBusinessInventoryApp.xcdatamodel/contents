@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="InventoryContainer" representedClassName="InventoryContainer" syncable="YES" codeGenerationType="class">
+    <entity name="Container" representedClassName="Container" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="hasItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="InventoryItem" inverseName="toContainer" inverseEntity="InventoryItem"/>
-        <relationship name="toSection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventorySection" inverseName="hasContainers" inverseEntity="InventorySection"/>
+        <relationship name="hasItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="toContainer" inverseEntity="Item"/>
+        <relationship name="toSection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="hasContainers" inverseEntity="Section"/>
     </entity>
-    <entity name="InventoryItem" representedClassName="InventoryItem" syncable="YES" codeGenerationType="class">
+    <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="itemDescription" optional="YES" attributeType="String"/>
+        <attribute name="itemdescription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="ownershipStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ownershipstatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
-        <attribute name="tag" optional="YES" attributeType="String"/>
-        <relationship name="toContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryContainer" inverseName="hasItems" inverseEntity="InventoryContainer"/>
+        <relationship name="hasTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="toItems" inverseEntity="Tag"/>
+        <relationship name="toContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Container" inverseName="hasItems" inverseEntity="Container"/>
     </entity>
-    <entity name="InventoryLocation" representedClassName="InventoryLocation" syncable="YES">
+    <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="hasSections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="InventorySection" inverseName="toLocation" inverseEntity="InventorySection"/>
+        <relationship name="hasSections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Section" inverseName="toLocation" inverseEntity="Section"/>
     </entity>
-    <entity name="InventorySection" representedClassName="InventorySection" syncable="YES" codeGenerationType="class">
+    <entity name="Section" representedClassName="Section" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="hasContainers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="InventoryContainer" inverseName="toSection" inverseEntity="InventoryContainer"/>
-        <relationship name="toLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InventoryLocation" inverseName="hasSections" inverseEntity="InventoryLocation"/>
+        <relationship name="hasContainers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Container" inverseName="toSection" inverseEntity="Container"/>
+        <relationship name="toLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="hasSections" inverseEntity="Location"/>
+    </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="toItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="hasTags" inverseEntity="Item"/>
     </entity>
 </model>

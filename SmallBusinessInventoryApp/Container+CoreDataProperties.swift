@@ -1,5 +1,5 @@
 //
-//  InventoryContainer+CoreDataProperties.swift
+//  Container+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
 //  Created by KKNANXX on 5/9/24.
@@ -10,27 +10,27 @@ import Foundation
 import CoreData
 
 
-extension InventoryContainer {
+extension Container {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<InventoryContainer> {
-        return NSFetchRequest<InventoryContainer>(entityName: "InventoryContainer")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Container> {
+        return NSFetchRequest<Container>(entityName: "Container")
     }
 
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var hasItems: NSSet?
-    @NSManaged public var toSection: InventorySection?
+    @NSManaged public var toSection: Section?
 
 }
 
 // MARK: Generated accessors for hasItems
-extension InventoryContainer {
+extension Container {
 
     @objc(addHasItemsObject:)
-    @NSManaged public func addToHasItems(_ value: InventoryItem)
+    @NSManaged public func addToHasItems(_ value: Item)
 
     @objc(removeHasItemsObject:)
-    @NSManaged public func removeFromHasItems(_ value: InventoryItem)
+    @NSManaged public func removeFromHasItems(_ value: Item)
 
     @objc(addHasItems:)
     @NSManaged public func addToHasItems(_ values: NSSet)
@@ -40,6 +40,6 @@ extension InventoryContainer {
 
 }
 
-extension InventoryContainer : Identifiable {
+extension Container : Identifiable {
 
 }
