@@ -26,6 +26,11 @@
 		4486A03B2BEDA39100EFF877 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4486A0312BEDA39100EFF877 /* Tag+CoreDataProperties.swift */; };
 		4486A03C2BEDA39100EFF877 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4486A0322BEDA39100EFF877 /* Location+CoreDataClass.swift */; };
 		4486A03D2BEDA39100EFF877 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4486A0332BEDA39100EFF877 /* Location+CoreDataProperties.swift */; };
+		44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */; };
+		44EAED6A2BEE07740045FBCC /* AddEditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED692BEE07740045FBCC /* AddEditItemViewController.swift */; };
+		44EAED6C2BEE079B0045FBCC /* TagManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED6B2BEE079B0045FBCC /* TagManagementViewController.swift */; };
+		44FF333E2BEE104C005DEEBD /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF333D2BEE104C005DEEBD /* ItemTableViewCell.swift */; };
+		44FF33402BF01D31005DEEBD /* BrowseItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF333F2BF01D31005DEEBD /* BrowseItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		4486A0312BEDA39100EFF877 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4486A0322BEDA39100EFF877 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4486A0332BEDA39100EFF877 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		44EAED692BEE07740045FBCC /* AddEditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditItemViewController.swift; sourceTree = "<group>"; };
+		44EAED6B2BEE079B0045FBCC /* TagManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagementViewController.swift; sourceTree = "<group>"; };
+		44FF333D2BEE104C005DEEBD /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		44FF333F2BF01D31005DEEBD /* BrowseItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +100,9 @@
 				44869F7D2BEAD74F00EFF877 /* LaunchScreen.storyboard */,
 				44869F802BEAD74F00EFF877 /* Info.plist */,
 				44869FD82BECB6C000EFF877 /* HomeViewController.swift */,
+				44FF333D2BEE104C005DEEBD /* ItemTableViewCell.swift */,
 				44869F962BEB642000EFF877 /* SearchItemViewController.swift */,
+				44FF333F2BF01D31005DEEBD /* BrowseItemsViewController.swift */,
 				44869F782BEAD74800EFF877 /* SmallBusinessInventoryApp.xcdatamodeld */,
 				4486A02A2BEDA39100EFF877 /* Item+CoreDataClass.swift */,
 				4486A02B2BEDA39100EFF877 /* Item+CoreDataProperties.swift */,
@@ -102,6 +114,9 @@
 				4486A0312BEDA39100EFF877 /* Tag+CoreDataProperties.swift */,
 				4486A0322BEDA39100EFF877 /* Location+CoreDataClass.swift */,
 				4486A0332BEDA39100EFF877 /* Location+CoreDataProperties.swift */,
+				44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */,
+				44EAED692BEE07740045FBCC /* AddEditItemViewController.swift */,
+				44EAED6B2BEE079B0045FBCC /* TagManagementViewController.swift */,
 			);
 			path = SmallBusinessInventoryApp;
 			sourceTree = "<group>";
@@ -178,8 +193,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */,
+				44EAED6C2BEE079B0045FBCC /* TagManagementViewController.swift in Sources */,
 				44869F742BEAD74800EFF877 /* ViewController.swift in Sources */,
 				44869F702BEAD74800EFF877 /* AppDelegate.swift in Sources */,
+				44FF33402BF01D31005DEEBD /* BrowseItemsViewController.swift in Sources */,
+				44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */,
 				44869F7A2BEAD74800EFF877 /* SmallBusinessInventoryApp.xcdatamodeld in Sources */,
 				44869F722BEAD74800EFF877 /* SceneDelegate.swift in Sources */,
 				44869FD92BECB6C000EFF877 /* HomeViewController.swift in Sources */,
@@ -187,12 +205,14 @@
 				4486A0352BEDA39100EFF877 /* Item+CoreDataProperties.swift in Sources */,
 				4486A0362BEDA39100EFF877 /* Section+CoreDataClass.swift in Sources */,
 				4486A0372BEDA39100EFF877 /* Section+CoreDataProperties.swift in Sources */,
+				44FF333E2BEE104C005DEEBD /* ItemTableViewCell.swift in Sources */,
 				4486A0382BEDA39100EFF877 /* Container+CoreDataClass.swift in Sources */,
 				4486A0392BEDA39100EFF877 /* Container+CoreDataProperties.swift in Sources */,
 				4486A03A2BEDA39100EFF877 /* Tag+CoreDataClass.swift in Sources */,
 				4486A03B2BEDA39100EFF877 /* Tag+CoreDataProperties.swift in Sources */,
 				4486A03C2BEDA39100EFF877 /* Location+CoreDataClass.swift in Sources */,
 				4486A03D2BEDA39100EFF877 /* Location+CoreDataProperties.swift in Sources */,
+				44EAED6A2BEE07740045FBCC /* AddEditItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

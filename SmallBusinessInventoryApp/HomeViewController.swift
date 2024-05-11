@@ -29,14 +29,46 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var homePageLabel: UILabel!
-    @IBOutlet weak var
-
+    @IBOutlet weak var itemListTableView: UITableView!
+    
+    var items: [[String: Any]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        itemListTableView.dataSource = self
+        itemListTableView.delegate = self
+        
+        loadItems()
+    }
+    
+    func loadItems() {
+        let item1: [String: Any] = [
+            "name": "Pen",
+            "description": "A pen",
+            //"photo": (any BinaryInteger).self,
+            "ownershipStatus": true
+        ]
+        items.append(item1)
+        
+        
+        itemListTableView.reloadData()
     }
 
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
+        let item = items[indexPath.row]
+        cell.configure(with: item)
+        return cell
+    }
+    
+    
 }
