@@ -17,7 +17,6 @@
 		44869FD92BECB6C000EFF877 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44869FD82BECB6C000EFF877 /* HomeViewController.swift */; };
 		44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */; };
 		44EAED6A2BEE07740045FBCC /* AddEditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED692BEE07740045FBCC /* AddEditItemViewController.swift */; };
-		44EAED6C2BEE079B0045FBCC /* TagManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED6B2BEE079B0045FBCC /* TagManagementViewController.swift */; };
 		44FF333E2BEE104C005DEEBD /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF333D2BEE104C005DEEBD /* ItemTableViewCell.swift */; };
 		44FF33402BF01D31005DEEBD /* BrowseItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF333F2BF01D31005DEEBD /* BrowseItemsViewController.swift */; };
 		44FF33422BF083B2005DEEBD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33412BF083B2005DEEBD /* DBManager.swift */; };
@@ -51,7 +50,6 @@
 		44869FD82BECB6C000EFF877 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		44EAED692BEE07740045FBCC /* AddEditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditItemViewController.swift; sourceTree = "<group>"; };
-		44EAED6B2BEE079B0045FBCC /* TagManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagementViewController.swift; sourceTree = "<group>"; };
 		44FF333D2BEE104C005DEEBD /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		44FF333F2BF01D31005DEEBD /* BrowseItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseItemsViewController.swift; sourceTree = "<group>"; };
 		44FF33412BF083B2005DEEBD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				44FF333F2BF01D31005DEEBD /* BrowseItemsViewController.swift */,
 				44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */,
 				44EAED692BEE07740045FBCC /* AddEditItemViewController.swift */,
-				44EAED6B2BEE079B0045FBCC /* TagManagementViewController.swift */,
 			);
 			path = SmallBusinessInventoryApp;
 			sourceTree = "<group>";
@@ -209,7 +206,6 @@
 			files = (
 				44FF33762BF1E84F005DEEBD /* TagModel.swift in Sources */,
 				44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */,
-				44EAED6C2BEE079B0045FBCC /* TagManagementViewController.swift in Sources */,
 				44FF33742BF1E840005DEEBD /* ItemModel.swift in Sources */,
 				44FF336C2BF1E55D005DEEBD /* LocationModel.swift in Sources */,
 				44869F702BEAD74800EFF877 /* AppDelegate.swift in Sources */,

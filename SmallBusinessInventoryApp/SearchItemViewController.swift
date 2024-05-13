@@ -13,7 +13,7 @@
 import UIKit
 import CoreData
 
-class SearchItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class SearchItemViewController: UIViewController{ //, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,7 +21,7 @@ class SearchItemViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
+        //searchBar.delegate = self
 //        setupFetchedResultsController()
     }
     

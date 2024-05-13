@@ -233,7 +233,6 @@ class DBManager: NSObject {
         return false
     }
     
-    
     func updateTag(id: UUID, newName: String) -> Bool {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -291,128 +290,53 @@ class DBManager: NSObject {
         }
     }
     
+    
+    
+    func preloadDataIfNeeded() {
+        let hasPreloadedData = UserDefaults.standard.bool(forKey: "hasPreloadedData")
+        if !hasPreloadedData {
+            preloadLocationsSectionsContainers()
+            UserDefaults.standard.set(true, forKey: "hasPreloadedData")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    private func preloadLocationsSectionsContainers() {
+        
+        let location1 = LocationModel(id: UUID(), name: "Main Warehouse")
+        let location2 = LocationModel(id: UUID(), name: "Secondary Storage")
+        _ = addLocation(with: location1)
+        _ = addLocation(with: location2)
+        
+        guard let mainWarehouse = fetchData(entityName: "Location", attribute: "name", value: "Main Warehouse").first as? Location,
+              let secondaryStorage = fetchData(entityName: "Location", attribute: "name", value: "Secondary Storage").first as? Location else {
+            print("Error: Predefined locations not found.")
+            return
+        }
+        
+        let section1 = SectionModel(id: UUID(), name: "Electronics")
+        let section2 = SectionModel(id: UUID(), name: "Clothing")
+        _ = addSection(with: section1, location: mainWarehouse)
+        _ = addSection(with: section2, location: secondaryStorage)
+        
+        guard let electronicsSection = fetchData(entityName: "Section", attribute: "name", value: "Electronics").first as? Section,
+              let clothingSection = fetchData(entityName: "Section", attribute: "name", value: "Clothing").first as? Section else {
+            print("Error: Predefined sections not found.")
+            return
+        }
+        
+        let container1 = ContainerModel(id: UUID(), name: "Shelf 1")
+        let container2 = ContainerModel(id: UUID(), name: "Rack 1")
+        _ = addContainer(with: container1, section: electronicsSection)
+        _ = addContainer(with: container2, section: clothingSection)
+        
+        let tag1 = TagModel(id: UUID(), name: "Urgent")
+        let tag2 = TagModel(id: UUID(), name: "Review")
+        _ = addTag(with: tag1)
+        _ = addTag(with: tag2)
+    }
+    
+    
+    
 }
-
-
-
-
-/*
- 
- func saveDataToStudent(withEntity: String, with dataModel: StudentModel) -> Bool {
- if let entity = NSEntityDescription.entity(forEntityName: withEntity, in: self.managedContext) {
- let user = NSManagedObject(entity: entity, insertInto: self.managedContext)
- 
- user.setValue(dataModel.name, forKey: "name")
- user.setValue(dataModel.age, forKey: "age")
- user.setValue(dataModel.email, forKey: "email")
- 
- //            saveData()
- // return true
- do {
- try self.managedContext.save()
- return true
- }
- catch {
- print(error)
- }
- }
- 
- return false
- 
- }
- 
- func saveData() {
- let application = UIApplication.shared
- let appDelegate = application.delegate as? AppDelegate
- appDelegate?.saveContext()
- }
- 
- func fetchData(withEntity: String) -> [NSManagedObject] {
- var fetchResult: [NSManagedObject] = []
- 
- let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: withEntity)
- 
- do {
- fetchResult = try self.managedContext.fetch(fetchRequest) as? [NSManagedObject] ?? []
- 
- return fetchResult
- }
- catch {
- print(error)
- }
- 
- return []
- }
- 
- func updateData(withEntity: String, with dataModel: SmallBusinessInventoryApp) -> Bool
- {
- var fetchResult: [NSManagedObject] = []
- 
- let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: withEntity)
- fetchRequest.fetchLimit = 1
- 
- do {
- fetchResult = try self.managedContext.fetch(fetchRequest) as? [NSManagedObject] ?? []
- if fetchResult.count > 0 {
- let obj = fetchResult[0] as NSManagedObject
- obj.setValue(dataModel.name, forKey: "name")
- obj.setValue(dataModel.age, forKey: "age")
- obj.setValue(dataModel.email, forKey: "email")
- }
- saveData()
- return true
- }
- catch {
- print(error)
- }
- 
- return false
- }
- 
- func deleteData(withEntity: String) -> Bool {
- var fetchResult: [NSManagedObject] = []
- 
- let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: withEntity)
- fetchRequest.fetchLimit = 1
- 
- do {
- fetchResult = try self.managedContext.fetch(fetchRequest) as? [NSManagedObject] ?? []
- if fetchResult.count > 0 {
- let obj = fetchResult[0] as NSManagedObject
- self.managedContext.delete(obj)
- }
- saveData()
- return true
- }
- catch {
- print(error)
- }
- 
- return false
- }
- 
- 
- func addPersitentStore()
- {
- let application = UIApplication.shared
- let appDelegate = application.delegate as? AppDelegate
- let container = appDelegate?.persistentContainer
- 
- let storeCordinator = container?.persistentStoreCoordinator
- 
- let defaultURL = NSPersistentContainer.defaultDirectoryURL()
- 
- let storeURL = defaultURL.appendingPathComponent("Sample.sqlite")
- 
- do {
- let store = try storeCordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
- }
- catch {
- print(error)
- }
- 
- 
- }
- */
-
 
