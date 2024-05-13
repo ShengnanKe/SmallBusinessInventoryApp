@@ -11,8 +11,8 @@
         <attribute name="itemdescription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="ownershipstatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
-        <relationship name="hasTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="toItems" inverseEntity="Tag"/>
+        <attribute name="photo" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="hasTag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="toItems" inverseEntity="Tag"/>
         <relationship name="toContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Container" inverseName="hasItems" inverseEntity="Container"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
@@ -29,6 +29,6 @@
     <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="toItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="hasTags" inverseEntity="Item"/>
+        <relationship name="toItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="hasTag" inverseEntity="Item"/>
     </entity>
 </model>

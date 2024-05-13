@@ -222,7 +222,7 @@
             </objects>
             <point key="canvasLocation" x="276" y="-310"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="6tB-XF-pFw">
             <objects>
                 <viewController id="AjU-hO-eHa" sceneMemberID="viewController">
@@ -232,10 +232,11 @@
                         <viewLayoutGuide key="safeArea" id="uOa-hi-0Qf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="uvI-yq-1ho"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8Q-ic-CWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="1507"/>
+            <point key="canvasLocation" x="276" y="1364"/>
         </scene>
         <!--Browse-->
         <scene sceneID="UiO-ve-8Wc">
@@ -298,6 +299,7 @@
                         <segue destination="pGk-Sj-k3f" kind="relationship" relationship="viewControllers" id="q7v-Sx-sTh"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="snj-KR-qHR"/>
                         <segue destination="Nri-2A-uKn" kind="relationship" relationship="viewControllers" id="U6O-gy-z3W"/>
+                        <segue destination="AjU-hO-eHa" kind="relationship" relationship="viewControllers" id="6G5-aD-OmK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fv-iQ-sxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

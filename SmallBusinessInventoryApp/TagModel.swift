@@ -1,15 +1,13 @@
 //
-//  Tag+CoreDataClass.swift
+//  TagModel.swift
 //  SmallBusinessInventoryApp
 //
 //  Created by KKNANXX on 5/12/24.
 //
-//
 
 import Foundation
-import CoreData
 
-@objc(Tag)
-public class Tag: NSManagedObject {
-
+struct TagModel {
+    let id: UUID
+    let name: String
 }

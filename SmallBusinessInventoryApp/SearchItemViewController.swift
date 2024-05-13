@@ -5,6 +5,9 @@
 //  Created by KKNANXX on 5/8/24.
 //
 
+// search 的时候用这个NSPredicate
+
+
 
 
 import UIKit

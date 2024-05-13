@@ -19,15 +19,18 @@
  Each Container -> multiple Items, each Item -> one Container.
  delete rule -> cascade -> when you delete a container, the items under this container will be deleted too.
  
+ Item to Tag: One-to-One
+ 
  
  Location: id & name
  Section: id & name
  Container: id & name
- Item: id, name, photo, description, ownership status, tag(s)
+ Item: id, name, photo(save the path to the file -> String), description, ownership status, tag(s)
  
  */
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -39,6 +42,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let url = NSPersistentContainer.defaultDirectoryURL()
         itemListTableView.dataSource = self
         itemListTableView.delegate = self
         

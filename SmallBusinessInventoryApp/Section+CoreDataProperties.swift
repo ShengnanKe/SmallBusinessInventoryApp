@@ -2,7 +2,7 @@
 //  Section+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
-//  Created by KKNANXX on 5/9/24.
+//  Created by KKNANXX on 5/12/24.
 //
 //
 
