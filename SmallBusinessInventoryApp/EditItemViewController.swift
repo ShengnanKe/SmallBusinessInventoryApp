@@ -141,9 +141,9 @@ class EditItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             do {
                 try imageData.write(to: filePath)
                 print("Saved image to: \(filePath)")
-                item.photo = filePath.path  // Update the photo path of the item
+                item.photo = filePath.path
                 if let context = item.managedObjectContext {
-                    try context.save()  // Save the context with the new image path
+                    try context.save()  
                 }
             } catch {
                 print("Error saving image: \(error)")

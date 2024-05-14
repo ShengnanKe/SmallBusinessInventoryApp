@@ -533,6 +533,7 @@
                                         <color key="backgroundColor" red="0.95703247840000005" green="0.82356800269999997" blue="0.36427439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="PeE-G5-8Tj" id="6BN-At-9SR"/>
+                                            <segue destination="5RM-Rd-yRZ" kind="show" id="baV-7P-a7W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -565,7 +566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-1X-4g4">
-                                <rect key="frame" x="50" y="139" width="293" height="35"/>
+                                <rect key="frame" x="50" y="183" width="293" height="35"/>
                                 <color key="backgroundColor" red="0.95703247840000005" green="0.82356800269999997" blue="0.36427439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="aeE-ql-tGx"/>
@@ -575,7 +576,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-mq-TeF">
-                                <rect key="frame" x="50" y="269" width="293" height="35"/>
+                                <rect key="frame" x="50" y="313" width="293" height="35"/>
                                 <color key="backgroundColor" red="0.95703247840000005" green="0.82356800269999997" blue="0.36427439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="umt-UM-iEo"/>
@@ -585,7 +586,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAu-7j-leC">
-                                <rect key="frame" x="50" y="204" width="293" height="35"/>
+                                <rect key="frame" x="50" y="248" width="293" height="35"/>
                                 <color key="backgroundColor" red="0.95703247840000005" green="0.82356800269999997" blue="0.36427439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ZeS-gY-nWv"/>
@@ -623,6 +624,7 @@
                             <constraint firstItem="NdB-Nk-alb" firstAttribute="trailing" secondItem="HEW-1X-4g4" secondAttribute="trailing" constant="50" id="uTM-JX-f1t"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="iUX-On-FR5"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="TAu-7j-leC" id="JIn-T7-V6s"/>
                         <outlet property="editButton" destination="9kg-Od-RNd" id="qwo-yY-Hae"/>
@@ -634,6 +636,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSA-N7-mqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6141" y="884"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fvX-vA-3g3">
+            <objects>
+                <viewController id="Lk7-ZI-OJJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DTe-XI-xgK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="F10-hK-9sV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ytm-8m-8aI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7881" y="913"/>
         </scene>
         <!--Location-->
         <scene sceneID="xJj-m2-8B9">

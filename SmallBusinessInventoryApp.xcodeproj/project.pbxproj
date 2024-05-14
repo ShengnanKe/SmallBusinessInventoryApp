@@ -147,9 +147,9 @@
 				4478D1272BF309F400F86393 /* ItemViewController.swift */,
 				4478D1312BF34CDE00F86393 /* ItemTableViewCell.swift */,
 				44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */,
-				4478D1292BF30DEB00F86393 /* EditItemViewController.swift */,
 				44869F962BEB642000EFF877 /* SearchItemViewController.swift */,
 				4478D1332BF3649500F86393 /* SearchItemTableViewCell.swift */,
+				4478D1292BF30DEB00F86393 /* EditItemViewController.swift */,
 			);
 			path = SmallBusinessInventoryApp;
 			sourceTree = "<group>";

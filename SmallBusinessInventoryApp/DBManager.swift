@@ -209,7 +209,6 @@ class DBManager: NSObject {
     func fetchData<T: NSManagedObject>(entityName: String, attribute: String, value: Any) -> [T] {
         let fetchRequest = NSFetchRequest<T>(entityName: entityName)
         
-        // Create a predicate that handles various types
         let predicate: NSPredicate
         switch value {
         case let stringValue as String:
@@ -252,53 +251,53 @@ class DBManager: NSObject {
     //    }
     
     // Update item 就行
-    func updateLocation(id: UUID, newName: String) -> Bool {
-        let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        do {
-            let results = try self.managedContext.fetch(fetchRequest)
-            if let locationToUpdate = results.first {
-                locationToUpdate.name = newName // setvalue
-                saveData()
-                return true
-            }
-        } catch {
-            print("Error updating location: \(error)")
-        }
-        return false
-    }
-    
-    func updateSection(id: UUID, newName: String) -> Bool {
-        let fetchRequest: NSFetchRequest<Section> = Section.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        do {
-            let results = try self.managedContext.fetch(fetchRequest)
-            if let sectionToUpdate = results.first {
-                sectionToUpdate.name = newName
-                saveData()
-                return true
-            }
-        } catch {
-            print("Error updating section: \(error)")
-        }
-        return false
-    }
-    
-    func updateContainer(id: UUID, newName: String) -> Bool {
-        let fetchRequest: NSFetchRequest<Container> = Container.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        do {
-            let results = try self.managedContext.fetch(fetchRequest)
-            if let containerToUpdate = results.first {
-                containerToUpdate.name = newName
-                saveData()
-                return true
-            }
-        } catch {
-            print("Error updating container: \(error)")
-        }
-        return false
-    }
+//    func updateLocation(id: UUID, newName: String) -> Bool {
+//        let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//        do {
+//            let results = try self.managedContext.fetch(fetchRequest)
+//            if let locationToUpdate = results.first {
+//                locationToUpdate.name = newName // setvalue
+//                saveData()
+//                return true
+//            }
+//        } catch {
+//            print("Error updating location: \(error)")
+//        }
+//        return false
+//    }
+//    
+//    func updateSection(id: UUID, newName: String) -> Bool {
+//        let fetchRequest: NSFetchRequest<Section> = Section.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//        do {
+//            let results = try self.managedContext.fetch(fetchRequest)
+//            if let sectionToUpdate = results.first {
+//                sectionToUpdate.name = newName
+//                saveData()
+//                return true
+//            }
+//        } catch {
+//            print("Error updating section: \(error)")
+//        }
+//        return false
+//    }
+//    
+//    func updateContainer(id: UUID, newName: String) -> Bool {
+//        let fetchRequest: NSFetchRequest<Container> = Container.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//        do {
+//            let results = try self.managedContext.fetch(fetchRequest)
+//            if let containerToUpdate = results.first {
+//                containerToUpdate.name = newName
+//                saveData()
+//                return true
+//            }
+//        } catch {
+//            print("Error updating container: \(error)")
+//        }
+//        return false
+//    }
     
     func updateItem(id: UUID, newName: String?, newItemDescription: String?, newOwnershipStatus: Bool?, newPhoto: String?) -> Bool {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
@@ -327,21 +326,21 @@ class DBManager: NSObject {
         return false
     }
     
-    func updateTag(id: UUID, newName: String) -> Bool {
-        let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        do {
-            let results = try self.managedContext.fetch(fetchRequest)
-            if let tagToUpdate = results.first {
-                tagToUpdate.name = newName
-                saveData()
-                return true
-            }
-        } catch {
-            print("Error updating tag: \(error)")
-        }
-        return false
-    }
+//    func updateTag(id: UUID, newName: String) -> Bool {
+//        let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//        do {
+//            let results = try self.managedContext.fetch(fetchRequest)
+//            if let tagToUpdate = results.first {
+//                tagToUpdate.name = newName
+//                saveData()
+//                return true
+//            }
+//        } catch {
+//            print("Error updating tag: \(error)")
+//        }
+//        return false
+//    }
     
     // Delete
     
