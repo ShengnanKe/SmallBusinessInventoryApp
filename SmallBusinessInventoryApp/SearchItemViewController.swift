@@ -12,7 +12,7 @@
 import UIKit
 import CoreData
 
-class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
+class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -23,8 +23,10 @@ class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableVi
         super.viewDidLoad()
         searchBar.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "searchItemCell")
+
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -42,6 +44,41 @@ class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableVi
         cell.textLabel?.text = "\(item.name ?? "Unknown") - \(item.itemdescription ?? "No Description")"
         return cell
     }
+    
+    // swipe delete and update ->
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        print("swipr actions")
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionHandler in
+            let itemToDelete = self.items[indexPath.row]
+            if let itemId = itemToDelete.id { // string 
+                if DBManager.shared.deleteEntity(entityName: "Item", id: itemId) {
+                    self.items.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                    completionHandler(true)
+                } else {
+                    completionHandler(false)
+                }
+            } else {
+                print("Invalid ID format")
+                completionHandler(false)
+            }
+
+        }
+
+        let updateAction = UIContextualAction(style: .normal, title: "Update") { action, view, completionHandler in
+            self.performSegue(withIdentifier: "showEditItem", sender: self.items[indexPath.row])
+            completionHandler(true)
+        }
+        updateAction.backgroundColor = .blue
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
+        configuration.performsFirstActionWithFullSwipe = false
+
+        return configuration
+    }
+
 }
 
     

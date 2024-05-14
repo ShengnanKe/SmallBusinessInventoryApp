@@ -346,13 +346,13 @@ class DBManager: NSObject {
     // Delete
     
     func deleteEntity(entityName: String, id: UUID) -> Bool {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg) //delete things based on the id
+        let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
         do {
-            let results = try self.managedContext.fetch(fetchRequest)
+            let results = try managedContext.fetch(fetchRequest)
             if let entityToDelete = results.first {
-                self.managedContext.delete(entityToDelete)
+                managedContext.delete(entityToDelete)
                 saveData()
                 return true
             }
@@ -361,6 +361,7 @@ class DBManager: NSObject {
         }
         return false
     }
+
     
     func preloadDataIfNeeded() {
         let hasPreloadedData = UserDefaults.standard.bool(forKey: "hasPreloadedData")
