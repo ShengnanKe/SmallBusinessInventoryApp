@@ -9,88 +9,43 @@
 
 
 
-
 import UIKit
 import CoreData
 
-class SearchItemViewController: UIViewController{ //, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-    
-    @IBOutlet weak var searchTableView: UITableView!
+class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
+
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var tableView: UITableView!
+
+    var items: [Item] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        tableView.dataSource = self
         
-        //searchBar.delegate = self
-//        setupFetchedResultsController()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "searchItemCell")
     }
-    
-    
-    
-    
-    
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        items = DBManager.shared.fetchItems(matching: searchText)
+        tableView.reloadData()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchItemCell", for: indexPath)
+        let item = items[indexPath.row]
+        cell.textLabel?.text = "\(item.name ?? "Unknown") - \(item.itemdescription ?? "No Description")"
+        return cell
+    }
+}
+
     
 //    var fetchedResultsController: NSFetchedResultsController<InventoryItem>!
 //    var managedObjectContext: NSManagedObjectContext!
 //    
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//
-//    
-//    func setupFetchedResultsController() {
-//        let fetchRequest: NSFetchRequest<InventoryItem> = InventoryItem.fetchRequest()
-//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-//        try? fetchedResultsController.performFetch()
-//        // before reload table -> Thread.current ???
-//        searchTableView.reloadData()
-//    }
-//    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        var predicates: [NSPredicate] = []
-//        if !searchText.isEmpty {
-//            predicates.append(NSPredicate(format: "name CONTAINS[cd] %@", searchText))
-//            predicates.append(NSPredicate(format: "itemDescription CONTAINS[cd] %@", searchText))
-//            // tbc
-//        }
-//        fetchedResultsController.fetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: predicates)
-//        try? fetchedResultsController.performFetch()
-//        searchTableView.reloadData()
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
-//        let item = fetchedResultsController.object(at: indexPath)
-//        return cell
-//    }
-//    
-    
-}

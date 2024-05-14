@@ -426,3 +426,24 @@ class DBManager: NSObject {
     
 }
 
+extension DBManager {
+    
+    // for the search item vc
+    func fetchItems(matching query: String) -> [Item] {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        
+        // earch by name, description, and tags
+        let namePredicate = NSPredicate(format: "name CONTAINS[cd] %@", query)
+        let descriptionPredicate = NSPredicate(format: "itemdescription CONTAINS[cd] %@", query)
+        let tagPredicate = NSPredicate(format: "hasTag.name CONTAINS[cd] %@", query)
+        
+        request.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: [namePredicate, descriptionPredicate, tagPredicate])
+
+        do {
+            return try managedContext.fetch(request)
+        } catch {
+            print("Error fetching data: \(error)")
+            return []
+        }
+    }
+}
