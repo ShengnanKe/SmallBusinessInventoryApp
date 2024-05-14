@@ -84,7 +84,7 @@ class DBManager: NSObject {
         }
     }
     
-    func addItem(with dataModel: ItemModel, container: Container, tag: Tag) -> Bool {
+    func addItem(with dataModel: ItemModel, container: Container, tag: Tag?) -> Bool { // 可以没有tag -> 可能需要改一下
         let item = Item(context: self.managedContext)
         item.id = dataModel.id
         item.name = dataModel.name
@@ -136,28 +136,122 @@ class DBManager: NSObject {
     // let items = fetchData(entityName: "Item") as? [Item] ?? []
     // let locations = fetchData(entityName: "Location") as? [Location] ?? []
     
+    
+    
     // Read -> fetch
-    func fetchData(entityName: String, attribute: String, value: Any) -> [NSManagedObject] {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+    
+    // with fetchAllEntities
+    func fetchAllEntities<T: NSManagedObject>(entityName: String) -> [T] {
+        let fetchRequest = NSFetchRequest<T>(entityName: entityName)
         
-        if let cvarValue = value as? CVarArg {
-            let predicate = NSPredicate(format: "%K == %@", attribute, cvarValue)
-            fetchRequest.predicate = predicate
-            
-            do {
-                let results = try managedContext.fetch(fetchRequest)
-                return results
-            } catch {
-                print("Error fetching \(entityName): \(error)")
-                return []
-            }
-        } else {
-            print("Error: Value does not conform to CVarArg")
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            print("Fetched \(results.count) entities of type \(entityName)")
+            return results
+        } catch {
+            print("Error fetching all \(entityName): \(error)")
             return []
         }
     }
     
-    // Update
+    // for section vc
+    func fetchSections(for location: Location) -> [Section] {
+        let fetchRequest: NSFetchRequest<Section> = Section.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "toLocation == %@", location)
+
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            print("Fetched \(results.count) sections for location: \(location.name ?? "Unknown")")
+            return results
+        } catch {
+            print("Error fetching sections for location \(location.name ?? "Unknown"): \(error)")
+            return []
+        }
+    }
+    
+    // for container vc
+    func fetchContainers(for section: Section) -> [Container] {
+        let fetchRequest: NSFetchRequest<Container> = Container.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "toSection == %@", section)
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            print("Fetched \(results.count) containers for section: \(section.name ?? "Unknown")")
+            return results
+        } catch {
+            print("Error fetching containers for section \(section.name ?? "Unknown"): \(error)")
+            return []
+        }
+    }
+    
+    // for item vc
+    func fetchItems(for container: Container) -> [Item] {
+        let containerID = container.objectID
+        guard let fetchedContainer = try? managedContext.existingObject(with: containerID) as? Container else {
+            print("Container not found in context.")
+            return []
+        }
+        
+        let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "toContainer == %@", container)
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            print("Fetched \(results.count) items for container: \(container.name ?? "Unknown")")
+            return results
+        } catch {
+            print("Error fetching items for container \(container.name ?? "Unknown"): \(error)")
+            return []
+        }
+    }
+
+
+    func fetchData<T: NSManagedObject>(entityName: String, attribute: String, value: Any) -> [T] {
+        let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+        
+        // Create a predicate that handles various types
+        let predicate: NSPredicate
+        switch value {
+        case let stringValue as String:
+            predicate = NSPredicate(format: "%K == %@", attribute, stringValue)
+        case let intValue as Int:
+            predicate = NSPredicate(format: "%K == %d", attribute, intValue)
+        case let boolValue as Bool:
+            predicate = NSPredicate(format: "%K == %@", attribute, NSNumber(value: boolValue))
+        case let uuidValue as UUID:
+            predicate = NSPredicate(format: "%K == %@", attribute, uuidValue as CVarArg)
+        default:
+            print("Unhandled type of value \(type(of: value)); using a default predicate that matches none.")
+            predicate = NSPredicate(value: false)
+        }
+        
+        fetchRequest.predicate = predicate
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            return results
+        } catch {
+            print("Error fetching \(entityName): \(error)")
+            return []
+        }
+    }
+    
+    //    func fetchData(entityName: String, attribute: String, value: Any) -> [NSManagedObject] {
+    //        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+    //
+    //        let predicate = NSPredicate(format: "%K == %@", attribute, value as! CVarArg) // NSPredicate(format: "name == %@", "SpecificName")
+    //        fetchRequest.predicate = predicate
+    //
+    //            do {
+    //                let results = try managedContext.fetch(fetchRequest)
+    //                return results
+    //            } catch {
+    //                print("Error fetching \(entityName): \(error)")
+    //                return []
+    //            }
+    //    }
+    
+    // Update item 就行
     func updateLocation(id: UUID, newName: String) -> Bool {
         let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -268,72 +362,64 @@ class DBManager: NSObject {
         return false
     }
     
-    
-    
-    func addPersistentStore() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            print("Failed to retrieve AppDelegate")
-            return
-        }
-        
-        let container = appDelegate.persistentContainer
-        let storeCoordinator = container.persistentStoreCoordinator
-        
-        let defaultURL = NSPersistentContainer.defaultDirectoryURL()
-        let storeURL = defaultURL.appendingPathComponent("BusinessInventory.sqlite")
-        
-        do {
-            let store = try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
-            print("Store added successfully: \(store)")
-        } catch {
-            print("Failed to add persistent store: \(error)")
-        }
-    }
-    
-    
-    
     func preloadDataIfNeeded() {
         let hasPreloadedData = UserDefaults.standard.bool(forKey: "hasPreloadedData")
         if !hasPreloadedData {
-            preloadLocationsSectionsContainers()
+            preloadLocationsSectionsContainersTags()
             UserDefaults.standard.set(true, forKey: "hasPreloadedData")
             UserDefaults.standard.synchronize()
         }
     }
     
-    private func preloadLocationsSectionsContainers() {
+    func preloadLocationsSectionsContainersTags() {
         
         let location1 = LocationModel(id: UUID(), name: "Main Warehouse")
         let location2 = LocationModel(id: UUID(), name: "Secondary Storage")
+        let location3 = LocationModel(id: UUID(), name: "Third Storage")
         _ = addLocation(with: location1)
         _ = addLocation(with: location2)
+        _ = addLocation(with: location3)
         
         guard let mainWarehouse = fetchData(entityName: "Location", attribute: "name", value: "Main Warehouse").first as? Location,
-              let secondaryStorage = fetchData(entityName: "Location", attribute: "name", value: "Secondary Storage").first as? Location else {
+              let secondaryStorage = fetchData(entityName: "Location", attribute: "name", value: "Secondary Storage").first as? Location,
+              let thirdStorage = fetchData(entityName: "Location", attribute: "name", value: "Third Storage").first as? Location else {
             print("Error: Predefined locations not found.")
             return
         }
         
-        let section1 = SectionModel(id: UUID(), name: "Electronics")
-        let section2 = SectionModel(id: UUID(), name: "Clothing")
+        
+        let section1 = SectionModel(id: UUID(), name: "Green")
+        let section2 = SectionModel(id: UUID(), name: "Blue")
+        let section3 = SectionModel(id: UUID(), name: "Pink")
+        
         _ = addSection(with: section1, location: mainWarehouse)
         _ = addSection(with: section2, location: secondaryStorage)
+        _ = addSection(with: section3, location: thirdStorage)
         
-        guard let electronicsSection = fetchData(entityName: "Section", attribute: "name", value: "Electronics").first as? Section,
-              let clothingSection = fetchData(entityName: "Section", attribute: "name", value: "Clothing").first as? Section else {
+        guard let greenSection = fetchData(entityName: "Section", attribute: "name", value: "Green").first as? Section,
+              let blueSection = fetchData(entityName: "Section", attribute: "name", value: "Blue").first as? Section,
+              let pinkSection = fetchData(entityName: "Section", attribute: "name", value: "Pink").first as? Section else {
             print("Error: Predefined sections not found.")
             return
         }
         
-        let container1 = ContainerModel(id: UUID(), name: "Shelf 1")
-        let container2 = ContainerModel(id: UUID(), name: "Rack 1")
-        _ = addContainer(with: container1, section: electronicsSection)
-        _ = addContainer(with: container2, section: clothingSection)
         
-        let tag1 = TagModel(id: UUID(), name: "Urgent")
-        let tag2 = TagModel(id: UUID(), name: "Review")
+        let container1 = ContainerModel(id: UUID(), name: "Shelf 1")
+        let container2 = ContainerModel(id: UUID(), name: "Shelf 2")
+        let container3 = ContainerModel(id: UUID(), name: "Shelf 3")
+        
+        _ = addContainer(with: container1, section: greenSection)
+        _ = addContainer(with: container2, section: blueSection)
+        _ = addContainer(with: container3, section: pinkSection)
+        
+        
+        let tag1 = TagModel(id: UUID(), name: "Monday")
+        let tag2 = TagModel(id: UUID(), name: "Tuesday")
+        let tag3 = TagModel(id: UUID(), name: "Wednesday")
+        
         _ = addTag(with: tag1)
         _ = addTag(with: tag2)
+        _ = addTag(with: tag3)
     }
     
     
