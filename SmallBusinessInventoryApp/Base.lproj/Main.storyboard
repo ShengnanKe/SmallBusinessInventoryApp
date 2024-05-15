@@ -309,8 +309,7 @@
                                 </menu>
                                 <state key="normal" title="Save location"/>
                                 <connections>
-                                    <action selector="addLocation:" destination="7lQ-G9-Yba" eventType="touchUpInside" id="if8-ba-1g9"/>
-                                    <action selector="addLocation:" destination="LR4-Rg-IXT" eventType="touchUpInside" id="mfp-da-VCI"/>
+                                    <action selector="addLocation:" destination="7lQ-G9-Yba" eventType="touchUpInside" id="8cU-jB-9wW"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="drn-Cl-m9n">
@@ -408,10 +407,6 @@
                                     </children>
                                 </menu>
                                 <state key="normal" title="Save Section"/>
-                                <connections>
-                                    <action selector="addLocation:" destination="7lQ-G9-Yba" eventType="touchUpInside" id="3Qs-vt-NTC"/>
-                                    <action selector="addLocation:" destination="LR4-Rg-IXT" eventType="touchUpInside" id="yUW-Ro-m0W"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l5K-EE-Ah2">
                                 <rect key="frame" x="0.0" y="273" width="393" height="496"/>
@@ -677,10 +672,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="J0E-Kz-7gq" kind="relationship" relationship="viewControllers" id="XDC-uM-XTz"/>
                         <segue destination="AjU-hO-eHa" kind="relationship" relationship="viewControllers" id="6G5-aD-OmK"/>
                         <segue destination="8Wv-q9-tdH" kind="relationship" relationship="viewControllers" id="e0J-XV-B1I"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="elV-ZU-DYi"/>
-                        <segue destination="J0E-Kz-7gq" kind="relationship" relationship="viewControllers" id="MxG-2w-ULl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fv-iQ-sxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1057,11 +1052,11 @@
             </objects>
             <point key="canvasLocation" x="543" y="700"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="1QO-Vk-d7w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J0E-Kz-7gq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="T53-Jp-Zpx"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="T53-Jp-Zpx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ro0-pc-chV">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1088,7 +1083,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

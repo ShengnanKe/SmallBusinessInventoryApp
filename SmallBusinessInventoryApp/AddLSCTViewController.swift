@@ -31,7 +31,8 @@ class AddLSCTViewController: UIViewController {
             return
         }
         
-        let success = DBManager.shared.addLocation(with: locationName)
+        let locationModel = LocationModel(name: locationName)
+        let success = DBManager.shared.addLocation(with: locationModel)
         if success {
             showAlert(message: "Location added successfully!")
             print("Successfully added location: \(locationName)")

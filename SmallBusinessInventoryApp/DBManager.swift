@@ -32,27 +32,25 @@ class DBManager: NSObject {
         super.init()
     }
     
+    
     func saveData() -> Bool {
-        do {
-            try managedContext.save()
-            return true
-        } catch {
-            print("Error saving context: \(error)")
-            return false
-        }
+        let application = UIApplication.shared
+        let appDelegate = application.delegate as? AppDelegate
+        appDelegate?.saveContext()
+        return true
     }
     
-    // Create
-    
-    func addLocation(with name: String) -> Bool {
-        guard let entity = NSEntityDescription.entity(forEntityName: "Location", in: managedContext) else {
+    func addLocation(with dataModel: LocationModel) -> Bool {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Location", in: self.managedContext) else {
             print("Failed to create entity description for Location")
             return false
         }
-        let location = NSManagedObject(entity: entity, insertInto: managedContext)
-        location.setValue(name, forKey: "name")
+        let location = NSManagedObject(entity: entity, insertInto: self.managedContext)
+        location.setValue(dataModel.name, forKey: "name")
+        
         return saveData()
     }
+    
     
     func addSection(with name: String, to location: Location) -> Bool {
         guard let entity = NSEntityDescription.entity(forEntityName: "Section", in: managedContext) else {
@@ -108,8 +106,11 @@ class DBManager: NSObject {
     
     func fetchAllEntities<T: NSManagedObject>(entityName: String) -> [T] {
         let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+        
         do {
-            return try managedContext.fetch(fetchRequest)
+            let results = try managedContext.fetch(fetchRequest)
+            print("Fetched \(results.count) entities of type \(entityName)")
+            return results
         } catch {
             print("Error fetching \(entityName): \(error)")
             return []

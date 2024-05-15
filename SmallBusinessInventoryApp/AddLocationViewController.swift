@@ -19,29 +19,36 @@ class AddLocationViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         loadLocations()
     }
     
     func loadLocations() {
         locations = DBManager.shared.fetchAllEntities(entityName: "Location") as? [Location] ?? []
+        
+        print("Loaded locations: \(locations.count)")
         tableView.reloadData()
     }
+
     
     @IBAction func addLocation(_ sender: UIButton) {
         guard let locationName = locationTextField.text, !locationName.isEmpty else {
-            showAlert(message: "Please enter a location name.")
+            print("Please enter a location name.")
             return
         }
         
-        let success = DBManager.shared.addLocation(with: locationName)
+        print("Attempting to add location: \(locationName)")
+        let locationModel = LocationModel(name: locationName)
+        let success = DBManager.shared.addLocation(with: locationModel)
         if success {
-            showAlert(message: "Location added successfully!")
+            print("Successfully added location: \(locationName)")
             locationTextField.text = ""
             loadLocations()
         } else {
-            showAlert(message: "Failed to add location.")
+            print("Failed to add location: \(locationName)")
         }
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return locations.count
@@ -67,9 +74,5 @@ class AddLocationViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
+    
 }

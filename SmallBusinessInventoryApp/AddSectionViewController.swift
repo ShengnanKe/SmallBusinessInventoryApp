@@ -32,22 +32,18 @@ class AddSectionViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func addSection(_ sender: UIButton) {
         guard let sectionName = sectionTextField.text, !sectionName.isEmpty else {
-            showAlert(message: "Please enter a section name.")
             return
         }
-        
         guard let location = location else {
-            showAlert(message: "Location not found.")
             return
         }
         
         let success = DBManager.shared.addSection(with: sectionName, to: location)
         if success {
-            showAlert(message: "Section added successfully!")
             sectionTextField.text = ""
             loadSections()
         } else {
-            showAlert(message: "Failed to add section.")
+
         }
     }
     
@@ -75,9 +71,5 @@ class AddSectionViewController: UIViewController, UITableViewDelegate, UITableVi
 //        }
 //    }
     
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
+    
 }
