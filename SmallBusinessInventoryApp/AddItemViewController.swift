@@ -91,9 +91,9 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         // pre-load some data
         //DBManager.shared.preloadLocationsSectionsContainersTags()
-        
-        let url = NSPersistentContainer.defaultDirectoryURL()
-        print("url: ", url)
+//        
+//        let url = NSPersistentContainer.defaultDirectoryURL()
+//        print("url: ", url)
         
         setupImagePicker()
     }

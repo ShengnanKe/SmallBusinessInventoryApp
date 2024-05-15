@@ -51,7 +51,6 @@ class DBManager: NSObject {
         return saveData()
     }
     
-    
     func addSection(with name: String, to location: Location) -> Bool {
         guard let entity = NSEntityDescription.entity(forEntityName: "Section", in: managedContext) else {
             print("Failed to create entity description for Section")

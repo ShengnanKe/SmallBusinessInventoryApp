@@ -301,15 +301,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SXS-8T-NEX"/>
                                 </constraints>
-                                <menu key="menu" id="nUq-Gy-Lff">
-                                    <children>
-                                        <command title="Item 1" id="zIw-1c-7lg"/>
-                                        <command title="Item 2" id="ghe-q0-bFT"/>
-                                    </children>
-                                </menu>
                                 <state key="normal" title="Save location"/>
                                 <connections>
-                                    <action selector="addLocation:" destination="7lQ-G9-Yba" eventType="touchUpInside" id="8cU-jB-9wW"/>
+                                    <action selector="locationAdding:" destination="7lQ-G9-Yba" eventType="touchUpInside" id="UKd-3j-mZU"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="drn-Cl-m9n">
@@ -368,8 +362,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="GTC-QP-gvX"/>
                     <connections>
+                        <outlet property="addLocationLabel" destination="NPY-T4-5xX" id="vsR-lf-T4e"/>
+                        <outlet property="locationTableView" destination="drn-Cl-m9n" id="Rmb-Tl-ekS"/>
                         <outlet property="locationTextField" destination="ydT-0d-4zd" id="9sZ-nY-eF7"/>
-                        <outlet property="tableView" destination="drn-Cl-m9n" id="4Zd-pz-E0H"/>
+                        <outlet property="saveLocationButton" destination="say-R9-TzF" id="Ki1-4R-8W6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYE-tV-4aX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -400,13 +396,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tAk-LT-GU0"/>
                                 </constraints>
-                                <menu key="menu" id="cV1-5D-U4c">
-                                    <children>
-                                        <command title="Item 1" id="jY1-96-8Qq"/>
-                                        <command title="Item 2" id="tjM-5K-S3W"/>
-                                    </children>
-                                </menu>
                                 <state key="normal" title="Save Section"/>
+                                <connections>
+                                    <action selector="addSection:" destination="KfL-jk-rB7" eventType="touchUpInside" id="M7Q-2f-Xba"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l5K-EE-Ah2">
                                 <rect key="frame" x="0.0" y="273" width="393" height="496"/>
@@ -471,6 +464,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FKw-Q3-hlG"/>
+                    <connections>
+                        <outlet property="sectionTextField" destination="48v-tI-ouq" id="kah-iN-1Kc"/>
+                        <outlet property="tableView" destination="l5K-EE-Ah2" id="47S-I0-hU5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eB-DR-ccp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
