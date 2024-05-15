@@ -52,8 +52,8 @@ class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableVi
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionHandler in
             let itemToDelete = self.items[indexPath.row]
-            if let itemId = itemToDelete.id { // string 
-                if DBManager.shared.deleteEntity(entityName: "Item", id: itemId) {
+            if let itemName = itemToDelete.name {
+                if DBManager.shared.deleteEntity(entityName: "Item", name: itemName) {
                     self.items.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .automatic)
                     completionHandler(true)
@@ -61,23 +61,30 @@ class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableVi
                     completionHandler(false)
                 }
             } else {
-                print("Invalid ID format")
+                print("Invalid item name")
                 completionHandler(false)
             }
-
         }
-
+        
         let updateAction = UIContextualAction(style: .normal, title: "Update") { action, view, completionHandler in
             self.performSegue(withIdentifier: "showEditItem", sender: self.items[indexPath.row])
             completionHandler(true)
         }
         updateAction.backgroundColor = .blue
-
+        
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
         configuration.performsFirstActionWithFullSwipe = false
-
+        
         return configuration
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showEditItem" {
+//            if let destinationVC = segue.destination as? EditItemViewController,
+//               let itemToEdit = sender as? Item {
+//                destinationVC.item = itemToEdit
+//            }
+//        }
 
 }
 

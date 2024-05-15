@@ -2,7 +2,7 @@
 //  Container+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
-//  Created by KKNANXX on 5/12/24.
+//  Created by KKNANXX on 5/14/24.
 //
 //
 
@@ -16,7 +16,6 @@ extension Container {
         return NSFetchRequest<Container>(entityName: "Container")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var hasItems: NSSet?
     @NSManaged public var toSection: Section?

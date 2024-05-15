@@ -8,7 +8,6 @@
 import Foundation
 
 struct LocationModel {
-    let id: UUID
     let name: String
 }
 

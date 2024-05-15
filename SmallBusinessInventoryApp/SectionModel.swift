@@ -8,6 +8,6 @@
 import Foundation
 
 struct SectionModel {
-    let id: UUID
+
     let name: String
 }

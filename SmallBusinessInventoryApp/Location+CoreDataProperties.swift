@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
-//  Created by KKNANXX on 5/12/24.
+//  Created by KKNANXX on 5/14/24.
 //
 //
 
@@ -16,7 +16,6 @@ extension Location {
         return NSFetchRequest<Location>(entityName: "Location")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var hasSections: NSSet?
 

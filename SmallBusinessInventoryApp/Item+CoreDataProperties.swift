@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  SmallBusinessInventoryApp
 //
-//  Created by KKNANXX on 5/12/24.
+//  Created by KKNANXX on 5/14/24.
 //
 //
 
@@ -16,7 +16,6 @@ extension Item {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var itemdescription: String?
     @NSManaged public var name: String?
     @NSManaged public var ownershipstatus: Bool

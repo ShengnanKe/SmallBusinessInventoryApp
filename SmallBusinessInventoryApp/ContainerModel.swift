@@ -8,6 +8,6 @@
 import Foundation
 
 struct ContainerModel {
-    let id: UUID
+
     let name: String
 }

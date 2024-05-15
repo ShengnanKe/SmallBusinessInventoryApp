@@ -7,11 +7,12 @@
 
 /*
  
- Location to Section: One-to-Many
+ Location to Section: One-to-Many -> hasSections
  Each Location -> multiple Sections, each Section -> one Location.
  delete rule -> cascade -> when you delete a location, the sections under this location will be deleted too.
  
- Section to Container: One-to-Many
+ Section to Container: One-to-Many -> hasContainers
+ toLocation - section belongs to one location
  Each Section -> multiple Containers, each Container -> one Section.
  delete rule -> cascade -> when you delete a section, the containers under this section will be deleted too.
  
@@ -22,10 +23,11 @@
  Item to Tag: One-to-One
  
  
- Location: id & name
- Section: id & name
- Container: id & name
- Item: id, name, photo(save the path to the file -> String), description, ownership status, tag(s)
+ Location:  name
+ Section:  name
+ Container:  name
+ Item: name, photo(save the path to the file -> String), description, ownership status,
+ tag: name
  
  */
 
@@ -150,10 +152,10 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == tagPickerView {
-            selectedTag = (row == 0) ? nil : tags[row - 1]
+            selectedTag = row == 0 ? nil : tags[row - 1]
         } else if pickerView == containerPickerView {
-            selectedContainer = containers[row] //.name
-            print("Selected Container: \(selectedContainer?.name ?? "No Name") with ID: \(selectedContainer?.objectID)")
+            selectedContainer = containers[row]
+            print("Selected Container: \(selectedContainer?.name ?? "No Name")")
         }
     }
     
@@ -182,7 +184,7 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             imagePath = "default/path"
         }
         
-        let itemModel = ItemModel(id: UUID(), name: name, itemDescription: description, ownershipStatus: ownershipStatus, photo: imagePath)
+        let itemModel = ItemModel(name: name, itemDescription: description, ownershipStatus: ownershipStatus, photo: imagePath)
         
         let success = DBManager.shared.addItem(with: itemModel, container: selectedContainer, tag: selectedTag)
         
@@ -201,6 +203,8 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         ownershipSwitch.setOn(false, animated: true)
         selectedContainer = nil
         selectedTag = nil
+        containerPickerView.reloadAllComponents()
+        tagPickerView.reloadAllComponents()
     }
     
     func saveImageAndGetPath(image: UIImage) -> String {
@@ -210,7 +214,11 @@ class AddItemViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         let fileManager = FileManager.default
         let docDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fileName = UUID().uuidString + ".jpg"
+        
+        let timestamp = Int(Date().timeIntervalSince1970)
+        let uniqueIdentifier = ProcessInfo.processInfo.globallyUniqueString
+        let fileName = "\(timestamp)-\(uniqueIdentifier).jpg"
+        
         let filePath = docDirectory.appendingPathComponent(fileName)
         
         do {
@@ -248,13 +256,6 @@ extension AddItemViewController: UIImagePickerControllerDelegate, UINavigationCo
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
     }
-    
-    //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-    //        if let pickedImage = info[.editedImage] as? UIImage {
-    //            itemImageView.image = pickedImage
-    //        }
-    //        picker.dismiss(animated: true)
-    //    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)

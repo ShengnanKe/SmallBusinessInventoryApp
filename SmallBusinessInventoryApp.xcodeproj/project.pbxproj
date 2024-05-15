@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443EF4A12BF3E1E1005C1C6D /* AddLSCTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A02BF3E1E1005C1C6D /* AddLSCTViewController.swift */; };
+		443EF4AC2BF43EC0005C1C6D /* Container+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A22BF43EC0005C1C6D /* Container+CoreDataClass.swift */; };
+		443EF4AD2BF43EC0005C1C6D /* Container+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A32BF43EC0005C1C6D /* Container+CoreDataProperties.swift */; };
+		443EF4AE2BF43EC0005C1C6D /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A42BF43EC0005C1C6D /* Location+CoreDataClass.swift */; };
+		443EF4AF2BF43EC0005C1C6D /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A52BF43EC0005C1C6D /* Location+CoreDataProperties.swift */; };
+		443EF4B02BF43EC0005C1C6D /* Section+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A62BF43EC0005C1C6D /* Section+CoreDataClass.swift */; };
+		443EF4B12BF43EC0005C1C6D /* Section+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A72BF43EC0005C1C6D /* Section+CoreDataProperties.swift */; };
+		443EF4B22BF43EC0005C1C6D /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A82BF43EC0005C1C6D /* Tag+CoreDataClass.swift */; };
+		443EF4B32BF43EC0005C1C6D /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A92BF43EC0005C1C6D /* Tag+CoreDataProperties.swift */; };
+		443EF4B42BF43EC0005C1C6D /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4AA2BF43EC0005C1C6D /* Item+CoreDataClass.swift */; };
+		443EF4B52BF43EC0005C1C6D /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4AB2BF43EC0005C1C6D /* Item+CoreDataProperties.swift */; };
+		443EF4B72BF45C64005C1C6D /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4B62BF45C64005C1C6D /* AddLocationViewController.swift */; };
+		443EF4B92BF45CFA005C1C6D /* AddSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4B82BF45CFA005C1C6D /* AddSectionViewController.swift */; };
+		443EF4BB2BF46106005C1C6D /* AddContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4BA2BF46106005C1C6D /* AddContainerViewController.swift */; };
+		443EF4BD2BF46139005C1C6D /* AddContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */; };
+		443EF4BF2BF4616D005C1C6D /* AddLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4BE2BF4616D005C1C6D /* AddLocationTableViewCell.swift */; };
+		443EF4C12BF46183005C1C6D /* AddSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */; };
 		4478D1222BF3085700F86393 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1212BF3085700F86393 /* LocationViewController.swift */; };
 		4478D1242BF3088300F86393 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1232BF3088300F86393 /* SectionViewController.swift */; };
 		4478D1262BF3094B00F86393 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1252BF3094B00F86393 /* ContainerViewController.swift */; };
@@ -26,16 +43,6 @@
 		44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44869F962BEB642000EFF877 /* SearchItemViewController.swift */; };
 		44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */; };
 		44FF33422BF083B2005DEEBD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33412BF083B2005DEEBD /* DBManager.swift */; };
-		44FF33612BF1A811005DEEBD /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33572BF1A811005DEEBD /* Location+CoreDataClass.swift */; };
-		44FF33622BF1A811005DEEBD /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33582BF1A811005DEEBD /* Location+CoreDataProperties.swift */; };
-		44FF33632BF1A811005DEEBD /* Container+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33592BF1A811005DEEBD /* Container+CoreDataClass.swift */; };
-		44FF33642BF1A811005DEEBD /* Container+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF335A2BF1A811005DEEBD /* Container+CoreDataProperties.swift */; };
-		44FF33652BF1A811005DEEBD /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF335B2BF1A811005DEEBD /* Item+CoreDataClass.swift */; };
-		44FF33662BF1A811005DEEBD /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF335C2BF1A811005DEEBD /* Item+CoreDataProperties.swift */; };
-		44FF33672BF1A811005DEEBD /* Section+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF335D2BF1A811005DEEBD /* Section+CoreDataClass.swift */; };
-		44FF33682BF1A811005DEEBD /* Section+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF335E2BF1A811005DEEBD /* Section+CoreDataProperties.swift */; };
-		44FF33692BF1A811005DEEBD /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF335F2BF1A811005DEEBD /* Tag+CoreDataClass.swift */; };
-		44FF336A2BF1A811005DEEBD /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33602BF1A811005DEEBD /* Tag+CoreDataProperties.swift */; };
 		44FF336C2BF1E55D005DEEBD /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF336B2BF1E55D005DEEBD /* LocationModel.swift */; };
 		44FF33702BF1E81F005DEEBD /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF336F2BF1E81F005DEEBD /* SectionModel.swift */; };
 		44FF33722BF1E833005DEEBD /* ContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33712BF1E833005DEEBD /* ContainerModel.swift */; };
@@ -45,6 +52,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		443EF4A02BF3E1E1005C1C6D /* AddLSCTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLSCTViewController.swift; sourceTree = "<group>"; };
+		443EF4A22BF43EC0005C1C6D /* Container+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+CoreDataClass.swift"; sourceTree = "<group>"; };
+		443EF4A32BF43EC0005C1C6D /* Container+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		443EF4A42BF43EC0005C1C6D /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		443EF4A52BF43EC0005C1C6D /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		443EF4A62BF43EC0005C1C6D /* Section+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section+CoreDataClass.swift"; sourceTree = "<group>"; };
+		443EF4A72BF43EC0005C1C6D /* Section+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		443EF4A82BF43EC0005C1C6D /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		443EF4A92BF43EC0005C1C6D /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		443EF4AA2BF43EC0005C1C6D /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		443EF4AB2BF43EC0005C1C6D /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		443EF4B62BF45C64005C1C6D /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		443EF4B82BF45CFA005C1C6D /* AddSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSectionViewController.swift; sourceTree = "<group>"; };
+		443EF4BA2BF46106005C1C6D /* AddContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContainerViewController.swift; sourceTree = "<group>"; };
+		443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContainerTableViewCell.swift; sourceTree = "<group>"; };
+		443EF4BE2BF4616D005C1C6D /* AddLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationTableViewCell.swift; sourceTree = "<group>"; };
+		443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSectionTableViewCell.swift; sourceTree = "<group>"; };
 		4478D1212BF3085700F86393 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		4478D1232BF3088300F86393 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		4478D1252BF3094B00F86393 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -66,16 +90,6 @@
 		44869F962BEB642000EFF877 /* SearchItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewController.swift; sourceTree = "<group>"; };
 		44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		44FF33412BF083B2005DEEBD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		44FF33572BF1A811005DEEBD /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		44FF33582BF1A811005DEEBD /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		44FF33592BF1A811005DEEBD /* Container+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+CoreDataClass.swift"; sourceTree = "<group>"; };
-		44FF335A2BF1A811005DEEBD /* Container+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		44FF335B2BF1A811005DEEBD /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		44FF335C2BF1A811005DEEBD /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		44FF335D2BF1A811005DEEBD /* Section+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section+CoreDataClass.swift"; sourceTree = "<group>"; };
-		44FF335E2BF1A811005DEEBD /* Section+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		44FF335F2BF1A811005DEEBD /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
-		44FF33602BF1A811005DEEBD /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		44FF336B2BF1E55D005DEEBD /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		44FF336F2BF1E81F005DEEBD /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		44FF33712BF1E833005DEEBD /* ContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerModel.swift; sourceTree = "<group>"; };
@@ -114,16 +128,16 @@
 		44869F6E2BEAD74800EFF877 /* SmallBusinessInventoryApp */ = {
 			isa = PBXGroup;
 			children = (
-				44FF33572BF1A811005DEEBD /* Location+CoreDataClass.swift */,
-				44FF33582BF1A811005DEEBD /* Location+CoreDataProperties.swift */,
-				44FF33592BF1A811005DEEBD /* Container+CoreDataClass.swift */,
-				44FF335A2BF1A811005DEEBD /* Container+CoreDataProperties.swift */,
-				44FF335B2BF1A811005DEEBD /* Item+CoreDataClass.swift */,
-				44FF335C2BF1A811005DEEBD /* Item+CoreDataProperties.swift */,
-				44FF335D2BF1A811005DEEBD /* Section+CoreDataClass.swift */,
-				44FF335E2BF1A811005DEEBD /* Section+CoreDataProperties.swift */,
-				44FF335F2BF1A811005DEEBD /* Tag+CoreDataClass.swift */,
-				44FF33602BF1A811005DEEBD /* Tag+CoreDataProperties.swift */,
+				443EF4A22BF43EC0005C1C6D /* Container+CoreDataClass.swift */,
+				443EF4A32BF43EC0005C1C6D /* Container+CoreDataProperties.swift */,
+				443EF4A42BF43EC0005C1C6D /* Location+CoreDataClass.swift */,
+				443EF4A52BF43EC0005C1C6D /* Location+CoreDataProperties.swift */,
+				443EF4A62BF43EC0005C1C6D /* Section+CoreDataClass.swift */,
+				443EF4A72BF43EC0005C1C6D /* Section+CoreDataProperties.swift */,
+				443EF4A82BF43EC0005C1C6D /* Tag+CoreDataClass.swift */,
+				443EF4A92BF43EC0005C1C6D /* Tag+CoreDataProperties.swift */,
+				443EF4AA2BF43EC0005C1C6D /* Item+CoreDataClass.swift */,
+				443EF4AB2BF43EC0005C1C6D /* Item+CoreDataProperties.swift */,
 				44FF336B2BF1E55D005DEEBD /* LocationModel.swift */,
 				44FF336F2BF1E81F005DEEBD /* SectionModel.swift */,
 				44FF33712BF1E833005DEEBD /* ContainerModel.swift */,
@@ -132,7 +146,14 @@
 				44869F6F2BEAD74800EFF877 /* AppDelegate.swift */,
 				44869F712BEAD74800EFF877 /* SceneDelegate.swift */,
 				44FF33412BF083B2005DEEBD /* DBManager.swift */,
+				443EF4B62BF45C64005C1C6D /* AddLocationViewController.swift */,
+				443EF4BE2BF4616D005C1C6D /* AddLocationTableViewCell.swift */,
+				443EF4B82BF45CFA005C1C6D /* AddSectionViewController.swift */,
+				443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */,
+				443EF4BA2BF46106005C1C6D /* AddContainerViewController.swift */,
+				443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */,
 				44FF33772BF2B8AB005DEEBD /* AddItemViewController.swift */,
+				443EF4A02BF3E1E1005C1C6D /* AddLSCTViewController.swift */,
 				44869F752BEAD74800EFF877 /* Main.storyboard */,
 				44869F7B2BEAD74F00EFF877 /* Assets.xcassets */,
 				44869F7D2BEAD74F00EFF877 /* LaunchScreen.storyboard */,
@@ -231,32 +252,39 @@
 				4478D12A2BF30DEB00F86393 /* EditItemViewController.swift in Sources */,
 				44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */,
 				44FF33742BF1E840005DEEBD /* ItemModel.swift in Sources */,
+				443EF4BF2BF4616D005C1C6D /* AddLocationTableViewCell.swift in Sources */,
 				4478D1282BF309F400F86393 /* ItemViewController.swift in Sources */,
 				44FF336C2BF1E55D005DEEBD /* LocationModel.swift in Sources */,
 				44869F702BEAD74800EFF877 /* AppDelegate.swift in Sources */,
 				44FF33782BF2B8AB005DEEBD /* AddItemViewController.swift in Sources */,
+				443EF4B92BF45CFA005C1C6D /* AddSectionViewController.swift in Sources */,
 				44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */,
-				44FF33612BF1A811005DEEBD /* Location+CoreDataClass.swift in Sources */,
-				44FF33622BF1A811005DEEBD /* Location+CoreDataProperties.swift in Sources */,
-				44FF33632BF1A811005DEEBD /* Container+CoreDataClass.swift in Sources */,
-				44FF33642BF1A811005DEEBD /* Container+CoreDataProperties.swift in Sources */,
-				44FF33652BF1A811005DEEBD /* Item+CoreDataClass.swift in Sources */,
 				4478D1222BF3085700F86393 /* LocationViewController.swift in Sources */,
-				44FF33662BF1A811005DEEBD /* Item+CoreDataProperties.swift in Sources */,
 				44FF33722BF1E833005DEEBD /* ContainerModel.swift in Sources */,
 				44FF33702BF1E81F005DEEBD /* SectionModel.swift in Sources */,
-				44FF33672BF1A811005DEEBD /* Section+CoreDataClass.swift in Sources */,
-				44FF33682BF1A811005DEEBD /* Section+CoreDataProperties.swift in Sources */,
+				443EF4A12BF3E1E1005C1C6D /* AddLSCTViewController.swift in Sources */,
 				4478D1242BF3088300F86393 /* SectionViewController.swift in Sources */,
-				44FF33692BF1A811005DEEBD /* Tag+CoreDataClass.swift in Sources */,
+				443EF4C12BF46183005C1C6D /* AddSectionTableViewCell.swift in Sources */,
 				4478D12C2BF317F600F86393 /* LocationTableViewCell.swift in Sources */,
-				44FF336A2BF1A811005DEEBD /* Tag+CoreDataProperties.swift in Sources */,
 				4478D1302BF3480500F86393 /* ContainerTableViewCell.swift in Sources */,
 				44869F7A2BEAD74800EFF877 /* SmallBusinessInventoryApp.xcdatamodeld in Sources */,
+				443EF4BD2BF46139005C1C6D /* AddContainerTableViewCell.swift in Sources */,
 				4478D1262BF3094B00F86393 /* ContainerViewController.swift in Sources */,
 				44FF33422BF083B2005DEEBD /* DBManager.swift in Sources */,
 				4478D1322BF34CDE00F86393 /* ItemTableViewCell.swift in Sources */,
 				44869F722BEAD74800EFF877 /* SceneDelegate.swift in Sources */,
+				443EF4BB2BF46106005C1C6D /* AddContainerViewController.swift in Sources */,
+				443EF4AC2BF43EC0005C1C6D /* Container+CoreDataClass.swift in Sources */,
+				443EF4AD2BF43EC0005C1C6D /* Container+CoreDataProperties.swift in Sources */,
+				443EF4AE2BF43EC0005C1C6D /* Location+CoreDataClass.swift in Sources */,
+				443EF4AF2BF43EC0005C1C6D /* Location+CoreDataProperties.swift in Sources */,
+				443EF4B02BF43EC0005C1C6D /* Section+CoreDataClass.swift in Sources */,
+				443EF4B12BF43EC0005C1C6D /* Section+CoreDataProperties.swift in Sources */,
+				443EF4B22BF43EC0005C1C6D /* Tag+CoreDataClass.swift in Sources */,
+				443EF4B32BF43EC0005C1C6D /* Tag+CoreDataProperties.swift in Sources */,
+				443EF4B72BF45C64005C1C6D /* AddLocationViewController.swift in Sources */,
+				443EF4B42BF43EC0005C1C6D /* Item+CoreDataClass.swift in Sources */,
+				443EF4B52BF43EC0005C1C6D /* Item+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

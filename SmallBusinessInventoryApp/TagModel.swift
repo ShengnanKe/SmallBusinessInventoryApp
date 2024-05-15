@@ -8,6 +8,6 @@
 import Foundation
 
 struct TagModel {
-    let id: UUID
+
     let name: String
 }

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Container" representedClassName="Container" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="hasItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="toContainer" inverseEntity="Item"/>
         <relationship name="toSection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="hasContainers" inverseEntity="Section"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="itemdescription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="ownershipstatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -16,18 +14,15 @@
         <relationship name="toContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Container" inverseName="hasItems" inverseEntity="Container"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="hasSections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Section" inverseName="toLocation" inverseEntity="Section"/>
     </entity>
     <entity name="Section" representedClassName="Section" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="hasContainers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Container" inverseName="toSection" inverseEntity="Container"/>
         <relationship name="toLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="hasSections" inverseEntity="Location"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="toItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="hasTag" inverseEntity="Item"/>
     </entity>

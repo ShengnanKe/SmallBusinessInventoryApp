@@ -8,7 +8,6 @@
 import Foundation
 
 struct ItemModel {
-    let id: UUID
     let name: String
     let itemDescription: String
     let ownershipStatus: Bool
