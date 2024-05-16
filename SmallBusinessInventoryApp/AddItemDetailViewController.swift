@@ -151,7 +151,7 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         do {
             try imageData.write(to: filePath)
             print("Saved image to: \(filePath)")
-            return fileName // Save only the file name, not the full path
+            return fileName 
         } catch {
             print("Error!! cannot save image: \(error)")
             return "default/path"
