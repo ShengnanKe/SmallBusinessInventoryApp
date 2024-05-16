@@ -9,10 +9,10 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var itemNameLabel: UILabel!
     
-    func configure(with name: String) {
-        nameLabel.text = name
+    func configure(with itemName: String) {
+        itemNameLabel.text = itemName
     }
     
     override func awakeFromNib() {

@@ -165,6 +165,8 @@
 				44869F7D2BEAD74F00EFF877 /* LaunchScreen.storyboard */,
 				44869F802BEAD74F00EFF877 /* Info.plist */,
 				44869F782BEAD74800EFF877 /* SmallBusinessInventoryApp.xcdatamodeld */,
+				44869F962BEB642000EFF877 /* SearchItemViewController.swift */,
+				4478D1332BF3649500F86393 /* SearchItemTableViewCell.swift */,
 				4478D1212BF3085700F86393 /* LocationViewController.swift */,
 				4478D12B2BF317F600F86393 /* LocationTableViewCell.swift */,
 				4478D1232BF3088300F86393 /* SectionViewController.swift */,
@@ -174,8 +176,6 @@
 				4478D1272BF309F400F86393 /* ItemViewController.swift */,
 				4478D1312BF34CDE00F86393 /* ItemTableViewCell.swift */,
 				44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */,
-				44869F962BEB642000EFF877 /* SearchItemViewController.swift */,
-				4478D1332BF3649500F86393 /* SearchItemTableViewCell.swift */,
 				4478D1292BF30DEB00F86393 /* EditItemViewController.swift */,
 			);
 			path = SmallBusinessInventoryApp;

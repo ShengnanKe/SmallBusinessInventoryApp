@@ -17,25 +17,23 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadItems()
         itemTableView.dataSource = self
         itemTableView.delegate = self
         
         self.title = container?.name ?? "Items"
+        
+        loadItems()
     }
-    
-//    func loadItems() {
-//        if let container = container {
-//            items = DBManager.shared.fetchItems(for: container)
-//            itemTableView.reloadData()
-//        }
-//    }
     
     func loadItems() {
         if let container = container {
-            DispatchQueue.main.async {
-                self.items = DBManager.shared.fetchItems(for: container)
-                self.itemTableView.reloadData()
+            DispatchQueue.global(qos: .userInitiated).async {
+                let fetchedItems = DBManager.shared.fetchItems(for: container)
+                DispatchQueue.main.async {
+                    self.items = fetchedItems
+                    self.itemTableView.reloadData()
+                    print("Loaded items: \(self.items.count)") // Debug logging
+                }
             }
         }
     }
@@ -67,6 +65,4 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
-
-    
 }

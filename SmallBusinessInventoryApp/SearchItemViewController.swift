@@ -48,7 +48,7 @@ class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableVi
     // swipe delete and update ->
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        print("swipr actions")
+        print("swipr delete actions")
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionHandler in
             let itemToDelete = self.items[indexPath.row]
@@ -66,30 +66,14 @@ class SearchItemViewController: UIViewController, UISearchBarDelegate, UITableVi
             }
         }
         
-        let updateAction = UIContextualAction(style: .normal, title: "Update") { action, view, completionHandler in
-            self.performSegue(withIdentifier: "showEditItem", sender: self.items[indexPath.row])
-            completionHandler(true)
-        }
-        updateAction.backgroundColor = .blue
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, updateAction])
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = false
         
         return configuration
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showEditItem" {
-//            if let destinationVC = segue.destination as? EditItemViewController,
-//               let itemToEdit = sender as? Item {
-//                destinationVC.item = itemToEdit
-//            }
-//        }
+
 
 }
 
-    
-//    var fetchedResultsController: NSFetchedResultsController<InventoryItem>!
-//    var managedObjectContext: NSManagedObjectContext!
-//    
-    
