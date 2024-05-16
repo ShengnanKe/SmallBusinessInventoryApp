@@ -33,12 +33,8 @@ class AddTagViewController: UIViewController {
             return
         }
         
-        let success = DBManager.shared.addTag(with: tagName)
-        
-        if success {
-            if let tag = DBManager.shared.fetchTag(with: tagName) {
-                delegate?.didSelectTag(tag)
-            }
+        if let tag = DBManager.shared.addTag(with: tagName) {
+            delegate?.didSelectTag(tag)
             showAlert(with: "Success", message: "Tag was successfully saved.")
             navigationController?.popViewController(animated: true)
         } else {

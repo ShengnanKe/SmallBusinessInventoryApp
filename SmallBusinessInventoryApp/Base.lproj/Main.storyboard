@@ -441,13 +441,33 @@
                                 <rect key="frame" x="0.0" y="189" width="393" height="629"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="149" id="j9E-X9-uKh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddItemCell" rowHeight="149" id="j9E-X9-uKh" customClass="AddItemTableViewCell" customModule="SmallBusinessInventoryApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j9E-X9-uKh" id="uKS-ba-k4C">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sj-mO-rDN">
+                                                    <rect key="frame" x="50" y="31" width="293" height="30"/>
+                                                    <color key="backgroundColor" red="0.95703247840000005" green="0.82356800269999997" blue="0.36427439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="vpW-yY-tEE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7sj-mO-rDN" firstAttribute="leading" secondItem="uKS-ba-k4C" secondAttribute="leadingMargin" constant="30" id="Uzk-fY-nzN"/>
+                                                <constraint firstItem="7sj-mO-rDN" firstAttribute="top" secondItem="uKS-ba-k4C" secondAttribute="topMargin" constant="20" id="XFb-sp-kXV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7sj-mO-rDN" secondAttribute="trailing" constant="30" id="yF4-o8-Bee"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemNameLabel" destination="7sj-mO-rDN" id="qiT-gv-2ZO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

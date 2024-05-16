@@ -42,6 +42,7 @@
 		44869F7C2BEAD74F00EFF877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44869F7B2BEAD74F00EFF877 /* Assets.xcassets */; };
 		44869F7F2BEAD74F00EFF877 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 44869F7E2BEAD74F00EFF877 /* Base */; };
 		44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44869F962BEB642000EFF877 /* SearchItemViewController.swift */; };
+		449202852BF5B17000194AC2 /* AddItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449202842BF5B17000194AC2 /* AddItemTableViewCell.swift */; };
 		44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */; };
 		44FF33422BF083B2005DEEBD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33412BF083B2005DEEBD /* DBManager.swift */; };
 		44FF336C2BF1E55D005DEEBD /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF336B2BF1E55D005DEEBD /* LocationModel.swift */; };
@@ -90,6 +91,7 @@
 		44869F7E2BEAD74F00EFF877 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44869F802BEAD74F00EFF877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44869F962BEB642000EFF877 /* SearchItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewController.swift; sourceTree = "<group>"; };
+		449202842BF5B17000194AC2 /* AddItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewCell.swift; sourceTree = "<group>"; };
 		44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		44FF33412BF083B2005DEEBD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		44FF336B2BF1E55D005DEEBD /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				443EF4BA2BF46106005C1C6D /* AddContainerViewController.swift */,
 				443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */,
 				44FF33772BF2B8AB005DEEBD /* AddItemViewController.swift */,
+				449202842BF5B17000194AC2 /* AddItemTableViewCell.swift */,
 				4474CE692BF5840C008EB4DC /* AddItemDetailViewController.swift */,
 				4474CE6B2BF586DC008EB4DC /* AddTagViewController.swift */,
 				44869F752BEAD74800EFF877 /* Main.storyboard */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4478D1342BF3649500F86393 /* SearchItemTableViewCell.swift in Sources */,
+				449202852BF5B17000194AC2 /* AddItemTableViewCell.swift in Sources */,
 				4474CE6C2BF586DC008EB4DC /* AddTagViewController.swift in Sources */,
 				44FF33762BF1E84F005DEEBD /* TagModel.swift in Sources */,
 				4478D12E2BF3200E00F86393 /* SectionTableViewCell.swift in Sources */,

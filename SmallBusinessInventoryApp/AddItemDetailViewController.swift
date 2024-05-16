@@ -32,17 +32,32 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         containerPickerView.delegate = self
         containerPickerView.dataSource = self
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
         
         if let item = item {
+            // Edit old item
             nameTextField.text = item.name
             descriptionTextField.text = item.itemdescription
             ownershipSwitch.isOn = item.ownershipstatus
+            selectedContainer = item.toContainer
+            selectedTag = item.hasTag
+            
+            if let container = item.toContainer {
+                let index = containers.firstIndex(of: container) ?? 0
+                containerPickerView.selectRow(index, inComponent: 0, animated: false)
+            }
+            
+            if let imagePath = item.photo, let image = UIImage(contentsOfFile: imagePath) {
+                itemImageView.image = image
+            }
         } else {
+            // Add new item
             nameTextField.placeholder = "Enter item name here: "
             descriptionTextField.placeholder = "Enter a description here: "
         }
         
-        setupImagePicker()
         loadPickerData()
     }
     
@@ -56,11 +71,6 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         DispatchQueue.main.async {
             self.containerPickerView.reloadAllComponents()
         }
-    }
-    
-    func setupImagePicker() {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
     }
     
     @IBAction func addTagButtonTapped(_ sender: UIButton) {
@@ -93,14 +103,29 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
             imagePath = "default/path"
         }
         
-        let itemModel = ItemModel(name: name, itemDescription: description, ownershipStatus: ownershipStatus, photo: imagePath)
+        if let item = item {
+            // Update existing item
+            item.name = name
+            item.itemdescription = description
+            item.ownershipstatus = ownershipStatus
+            item.photo = imagePath
+            item.toContainer = selectedContainer
+            item.hasTag = selectedTag
+        } else {
+            // Create new item
+            let itemModel = ItemModel(name: name, itemDescription: description, ownershipStatus: ownershipStatus, photo: imagePath)
+            let success = DBManager.shared.addItem(with: itemModel, container: selectedContainer, tag: selectedTag)
+            if !success {
+                showAlert(with: "Error", message: "Failed to save the item.")
+                return
+            }
+        }
         
-        let success = DBManager.shared.addItem(with: itemModel, container: selectedContainer, tag: selectedTag)
-        
-        if success {
+        do {
+            try DBManager.shared.managedContext.save()
             showAlert(with: "Success", message: "Item was successfully saved.")
             navigationController?.popViewController(animated: true)
-        } else {
+        } catch {
             showAlert(with: "Error", message: "Failed to save the item.")
         }
     }
@@ -111,7 +136,7 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
         
         let fileManager = FileManager.default
-        let docDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let docDirectory = getDocumentsDirectory()
         
         let timestamp = Int(Date().timeIntervalSince1970)
         let uniqueIdentifier = ProcessInfo.processInfo.globallyUniqueString
@@ -122,11 +147,16 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         do {
             try imageData.write(to: filePath)
             print("Saved image to: \(filePath)")
-            return filePath.path
+            return fileName // Save only the file name, not the full path
         } catch {
             print("Error!! cannot save image: \(error)")
             return "default/path"
         }
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     private func showAlert(with title: String, message: String) {
@@ -172,7 +202,7 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
         guard let image = info[.originalImage] as? UIImage else { return }
         itemImageView.image = image
         
-        let imagePath = saveImageAndGetPath(image: image)
+        //let imagePath = saveImageAndGetPath(image: image)
         
     }
     

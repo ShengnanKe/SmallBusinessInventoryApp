@@ -92,10 +92,14 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
         return items.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddItemCell", for: indexPath) as! AddItemTableViewCell
         let item = items[indexPath.row]
-        cell.textLabel?.text = item.name
+        cell.configure(with: item)
         return cell
     }
     

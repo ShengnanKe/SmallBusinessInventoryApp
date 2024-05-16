@@ -91,15 +91,29 @@ class DBManager: NSObject {
         }
     }
     
-    func addTag(with name: String) -> Bool {
+    func addTag(with name: String) -> Tag? {
+        if let existingTag = fetchTag(with: name) { // check if this tag exist or not
+            return existingTag
+        }
+        
+        // create new tag
         guard let entity = NSEntityDescription.entity(forEntityName: "Tag", in: managedContext) else {
             print("Failed to create entity description for Tag")
-            return false
+            return nil
         }
-        let tag = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        let tag = NSManagedObject(entity: entity, insertInto: managedContext) as! Tag
         tag.setValue(name, forKey: "name")
-        return saveData()
+        
+        do {
+            try managedContext.save()
+            return tag
+        } catch {
+            print("Error saving tag: \(error)")
+            return nil
+        }
     }
+
     
     // Read -> fetch
     
