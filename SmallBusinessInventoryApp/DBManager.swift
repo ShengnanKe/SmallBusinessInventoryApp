@@ -103,6 +103,19 @@ class DBManager: NSObject {
     
     // Read -> fetch
     
+    func fetchTag(with name: String) -> Tag? {
+        let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            return results.first
+        } catch {
+            print("Error fetching tag with name \(name): \(error)")
+            return nil
+        }
+    }
+    
     func fetchAllEntities<T: NSManagedObject>(entityName: String) -> [T] {
         let fetchRequest = NSFetchRequest<T>(entityName: entityName)
         

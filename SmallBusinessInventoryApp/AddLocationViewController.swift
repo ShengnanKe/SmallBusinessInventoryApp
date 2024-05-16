@@ -69,22 +69,27 @@ class AddLocationViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AddLocationCell", for: indexPath)
-        cell.textLabel?.text = locations[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddLocationCell", for: indexPath) as! AddLocationTableViewCell
+        let location = locations[indexPath.row]
+        cell.configure(with: location)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedLocation = locations[indexPath.row]
-        performSegue(withIdentifier: "showAddSection", sender: selectedLocation)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showAddSection" {
-            if let destinationVC = segue.destination as? AddSectionViewController,
-               let location = sender as? Location {
-                destinationVC.location = location
-            }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let addSectionVC = storyboard.instantiateViewController(withIdentifier: "AddSectionViewController") as? AddSectionViewController {
+            addSectionVC.location = selectedLocation
+            navigationController?.pushViewController(addSectionVC, animated: true)
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showAddSection" {
+//            if let destinationVC = segue.destination as? AddSectionViewController,
+//               let location = sender as? Location {
+//                destinationVC.location = location
+//            }
+//        }
+//    }
 }

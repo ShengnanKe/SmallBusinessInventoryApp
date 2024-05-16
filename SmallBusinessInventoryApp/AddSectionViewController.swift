@@ -10,8 +10,10 @@ import CoreData
 
 class AddSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var addSectionLabel: UILabel!
     @IBOutlet weak var sectionTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var saveSectionButton: UIButton!
     
     var location: Location?
     var sections: [Section] = []
@@ -43,7 +45,7 @@ class AddSectionViewController: UIViewController, UITableViewDelegate, UITableVi
             sectionTextField.text = ""
             loadSections()
         } else {
-
+            print("Failed to add section: \(sectionName)")
         }
     }
     
@@ -51,25 +53,36 @@ class AddSectionViewController: UIViewController, UITableViewDelegate, UITableVi
         return sections.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SectionCell", for: indexPath)
-        cell.textLabel?.text = sections[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddSectionCell", for: indexPath) as! AddSectionTableViewCell
+        let section = sections[indexPath.row]
+        cell.configure(with: section)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSection = sections[indexPath.row]
-        performSegue(withIdentifier: "showAddContainer", sender: selectedSection)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let addContainerVC = storyboard.instantiateViewController(withIdentifier: "AddContainerViewController") as? AddContainerViewController {
+            addContainerVC.section = selectedSection
+            navigationController?.pushViewController(addContainerVC, animated: true)
+        }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showAddContainer" {
-//            if let destinationVC = segue.destination as? AddContainerViewController,
-//               let section = sender as? Section {
-//                destinationVC.section = section
-//            }
-//        }
-//    }
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "showAddContainer" {
+    //            print("Preparing for segue to AddContainerViewController")
+    //            if let destinationVC = segue.destination as? AddContainerViewController,
+    //               let section = sender as? Section {
+    //                destinationVC.section = section
+    //            }
+    //        }
+    //    }
     
     
 }

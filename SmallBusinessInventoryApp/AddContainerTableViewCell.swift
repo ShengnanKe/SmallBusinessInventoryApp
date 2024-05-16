@@ -8,6 +8,12 @@
 import UIKit
 
 class AddContainerTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var containerNameLabel: UILabel!
+    
+    func configure(with container: Container) {
+        containerNameLabel.text = container.name
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

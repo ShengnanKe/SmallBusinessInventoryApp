@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		443EF4A12BF3E1E1005C1C6D /* AddLSCTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A02BF3E1E1005C1C6D /* AddLSCTViewController.swift */; };
 		443EF4AC2BF43EC0005C1C6D /* Container+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A22BF43EC0005C1C6D /* Container+CoreDataClass.swift */; };
 		443EF4AD2BF43EC0005C1C6D /* Container+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A32BF43EC0005C1C6D /* Container+CoreDataProperties.swift */; };
 		443EF4AE2BF43EC0005C1C6D /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4A42BF43EC0005C1C6D /* Location+CoreDataClass.swift */; };
@@ -24,6 +23,8 @@
 		443EF4BD2BF46139005C1C6D /* AddContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */; };
 		443EF4BF2BF4616D005C1C6D /* AddLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4BE2BF4616D005C1C6D /* AddLocationTableViewCell.swift */; };
 		443EF4C12BF46183005C1C6D /* AddSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */; };
+		4474CE6A2BF5840C008EB4DC /* AddItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474CE692BF5840C008EB4DC /* AddItemDetailViewController.swift */; };
+		4474CE6C2BF586DC008EB4DC /* AddTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474CE6B2BF586DC008EB4DC /* AddTagViewController.swift */; };
 		4478D1222BF3085700F86393 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1212BF3085700F86393 /* LocationViewController.swift */; };
 		4478D1242BF3088300F86393 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1232BF3088300F86393 /* SectionViewController.swift */; };
 		4478D1262BF3094B00F86393 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1252BF3094B00F86393 /* ContainerViewController.swift */; };
@@ -52,7 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		443EF4A02BF3E1E1005C1C6D /* AddLSCTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLSCTViewController.swift; sourceTree = "<group>"; };
 		443EF4A22BF43EC0005C1C6D /* Container+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+CoreDataClass.swift"; sourceTree = "<group>"; };
 		443EF4A32BF43EC0005C1C6D /* Container+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		443EF4A42BF43EC0005C1C6D /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -69,6 +69,8 @@
 		443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContainerTableViewCell.swift; sourceTree = "<group>"; };
 		443EF4BE2BF4616D005C1C6D /* AddLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationTableViewCell.swift; sourceTree = "<group>"; };
 		443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSectionTableViewCell.swift; sourceTree = "<group>"; };
+		4474CE692BF5840C008EB4DC /* AddItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemDetailViewController.swift; sourceTree = "<group>"; };
+		4474CE6B2BF586DC008EB4DC /* AddTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewController.swift; sourceTree = "<group>"; };
 		4478D1212BF3085700F86393 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		4478D1232BF3088300F86393 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		4478D1252BF3094B00F86393 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +155,8 @@
 				443EF4BA2BF46106005C1C6D /* AddContainerViewController.swift */,
 				443EF4BC2BF46139005C1C6D /* AddContainerTableViewCell.swift */,
 				44FF33772BF2B8AB005DEEBD /* AddItemViewController.swift */,
-				443EF4A02BF3E1E1005C1C6D /* AddLSCTViewController.swift */,
+				4474CE692BF5840C008EB4DC /* AddItemDetailViewController.swift */,
+				4474CE6B2BF586DC008EB4DC /* AddTagViewController.swift */,
 				44869F752BEAD74800EFF877 /* Main.storyboard */,
 				44869F7B2BEAD74F00EFF877 /* Assets.xcassets */,
 				44869F7D2BEAD74F00EFF877 /* LaunchScreen.storyboard */,
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4478D1342BF3649500F86393 /* SearchItemTableViewCell.swift in Sources */,
+				4474CE6C2BF586DC008EB4DC /* AddTagViewController.swift in Sources */,
 				44FF33762BF1E84F005DEEBD /* TagModel.swift in Sources */,
 				4478D12E2BF3200E00F86393 /* SectionTableViewCell.swift in Sources */,
 				4478D12A2BF30DEB00F86393 /* EditItemViewController.swift in Sources */,
@@ -259,10 +263,10 @@
 				44FF33782BF2B8AB005DEEBD /* AddItemViewController.swift in Sources */,
 				443EF4B92BF45CFA005C1C6D /* AddSectionViewController.swift in Sources */,
 				44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */,
+				4474CE6A2BF5840C008EB4DC /* AddItemDetailViewController.swift in Sources */,
 				4478D1222BF3085700F86393 /* LocationViewController.swift in Sources */,
 				44FF33722BF1E833005DEEBD /* ContainerModel.swift in Sources */,
 				44FF33702BF1E81F005DEEBD /* SectionModel.swift in Sources */,
-				443EF4A12BF3E1E1005C1C6D /* AddLSCTViewController.swift in Sources */,
 				4478D1242BF3088300F86393 /* SectionViewController.swift in Sources */,
 				443EF4C12BF46183005C1C6D /* AddSectionTableViewCell.swift in Sources */,
 				4478D12C2BF317F600F86393 /* LocationTableViewCell.swift in Sources */,
