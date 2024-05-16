@@ -49,11 +49,15 @@ class AddItemDetailViewController: UIViewController, UIPickerViewDelegate, UIPic
                 containerPickerView.selectRow(index, inComponent: 0, animated: false)
             }
             
-            if let imagePath = item.photo, let image = UIImage(contentsOfFile: imagePath) {
-                itemImageView.image = image
+            if let imagePath = item.photo, !imagePath.isEmpty {
+                let fullImagePath = getDocumentsDirectory().appendingPathComponent(imagePath).path
+                if let image = UIImage(contentsOfFile: fullImagePath) {
+                    itemImageView.image = image
+                } else {
+                    print("Failed to load image from path: \(fullImagePath)")
+                }
             }
         } else {
-            // Add new item
             nameTextField.placeholder = "Enter item name here: "
             descriptionTextField.placeholder = "Enter a description here: "
         }
