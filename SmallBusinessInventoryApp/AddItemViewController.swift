@@ -56,7 +56,7 @@ class AddItemViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ItemCell")
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AddItemCell")
         
         loadItems()
     }

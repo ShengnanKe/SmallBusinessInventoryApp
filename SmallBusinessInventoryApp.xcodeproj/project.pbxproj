@@ -25,15 +25,6 @@
 		443EF4C12BF46183005C1C6D /* AddSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */; };
 		4474CE6A2BF5840C008EB4DC /* AddItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474CE692BF5840C008EB4DC /* AddItemDetailViewController.swift */; };
 		4474CE6C2BF586DC008EB4DC /* AddTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474CE6B2BF586DC008EB4DC /* AddTagViewController.swift */; };
-		4478D1222BF3085700F86393 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1212BF3085700F86393 /* LocationViewController.swift */; };
-		4478D1242BF3088300F86393 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1232BF3088300F86393 /* SectionViewController.swift */; };
-		4478D1262BF3094B00F86393 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1252BF3094B00F86393 /* ContainerViewController.swift */; };
-		4478D1282BF309F400F86393 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1272BF309F400F86393 /* ItemViewController.swift */; };
-		4478D12A2BF30DEB00F86393 /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1292BF30DEB00F86393 /* EditItemViewController.swift */; };
-		4478D12C2BF317F600F86393 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D12B2BF317F600F86393 /* LocationTableViewCell.swift */; };
-		4478D12E2BF3200E00F86393 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D12D2BF3200E00F86393 /* SectionTableViewCell.swift */; };
-		4478D1302BF3480500F86393 /* ContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D12F2BF3480500F86393 /* ContainerTableViewCell.swift */; };
-		4478D1322BF34CDE00F86393 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1312BF34CDE00F86393 /* ItemTableViewCell.swift */; };
 		4478D1342BF3649500F86393 /* SearchItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478D1332BF3649500F86393 /* SearchItemTableViewCell.swift */; };
 		44869F702BEAD74800EFF877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44869F6F2BEAD74800EFF877 /* AppDelegate.swift */; };
 		44869F722BEAD74800EFF877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44869F712BEAD74800EFF877 /* SceneDelegate.swift */; };
@@ -43,7 +34,6 @@
 		44869F7F2BEAD74F00EFF877 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 44869F7E2BEAD74F00EFF877 /* Base */; };
 		44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44869F962BEB642000EFF877 /* SearchItemViewController.swift */; };
 		449202852BF5B17000194AC2 /* AddItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449202842BF5B17000194AC2 /* AddItemTableViewCell.swift */; };
-		44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */; };
 		44FF33422BF083B2005DEEBD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF33412BF083B2005DEEBD /* DBManager.swift */; };
 		44FF336C2BF1E55D005DEEBD /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF336B2BF1E55D005DEEBD /* LocationModel.swift */; };
 		44FF33702BF1E81F005DEEBD /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF336F2BF1E81F005DEEBD /* SectionModel.swift */; };
@@ -72,15 +62,6 @@
 		443EF4C02BF46183005C1C6D /* AddSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSectionTableViewCell.swift; sourceTree = "<group>"; };
 		4474CE692BF5840C008EB4DC /* AddItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemDetailViewController.swift; sourceTree = "<group>"; };
 		4474CE6B2BF586DC008EB4DC /* AddTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewController.swift; sourceTree = "<group>"; };
-		4478D1212BF3085700F86393 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		4478D1232BF3088300F86393 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
-		4478D1252BF3094B00F86393 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		4478D1272BF309F400F86393 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
-		4478D1292BF30DEB00F86393 /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
-		4478D12B2BF317F600F86393 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
-		4478D12D2BF3200E00F86393 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
-		4478D12F2BF3480500F86393 /* ContainerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerTableViewCell.swift; sourceTree = "<group>"; };
-		4478D1312BF34CDE00F86393 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		4478D1332BF3649500F86393 /* SearchItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemTableViewCell.swift; sourceTree = "<group>"; };
 		44869F6C2BEAD74800EFF877 /* SmallBusinessInventoryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmallBusinessInventoryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44869F6F2BEAD74800EFF877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +73,6 @@
 		44869F802BEAD74F00EFF877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44869F962BEB642000EFF877 /* SearchItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewController.swift; sourceTree = "<group>"; };
 		449202842BF5B17000194AC2 /* AddItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewCell.swift; sourceTree = "<group>"; };
-		44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		44FF33412BF083B2005DEEBD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		44FF336B2BF1E55D005DEEBD /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		44FF336F2BF1E81F005DEEBD /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
@@ -167,16 +147,6 @@
 				44869F782BEAD74800EFF877 /* SmallBusinessInventoryApp.xcdatamodeld */,
 				44869F962BEB642000EFF877 /* SearchItemViewController.swift */,
 				4478D1332BF3649500F86393 /* SearchItemTableViewCell.swift */,
-				4478D1212BF3085700F86393 /* LocationViewController.swift */,
-				4478D12B2BF317F600F86393 /* LocationTableViewCell.swift */,
-				4478D1232BF3088300F86393 /* SectionViewController.swift */,
-				4478D12D2BF3200E00F86393 /* SectionTableViewCell.swift */,
-				4478D1252BF3094B00F86393 /* ContainerViewController.swift */,
-				4478D12F2BF3480500F86393 /* ContainerTableViewCell.swift */,
-				4478D1272BF309F400F86393 /* ItemViewController.swift */,
-				4478D1312BF34CDE00F86393 /* ItemTableViewCell.swift */,
-				44EAED672BEE06D90045FBCC /* ItemDetailViewController.swift */,
-				4478D1292BF30DEB00F86393 /* EditItemViewController.swift */,
 			);
 			path = SmallBusinessInventoryApp;
 			sourceTree = "<group>";
@@ -256,30 +226,20 @@
 				449202852BF5B17000194AC2 /* AddItemTableViewCell.swift in Sources */,
 				4474CE6C2BF586DC008EB4DC /* AddTagViewController.swift in Sources */,
 				44FF33762BF1E84F005DEEBD /* TagModel.swift in Sources */,
-				4478D12E2BF3200E00F86393 /* SectionTableViewCell.swift in Sources */,
-				4478D12A2BF30DEB00F86393 /* EditItemViewController.swift in Sources */,
 				44869F972BEB642000EFF877 /* SearchItemViewController.swift in Sources */,
 				44FF33742BF1E840005DEEBD /* ItemModel.swift in Sources */,
 				443EF4BF2BF4616D005C1C6D /* AddLocationTableViewCell.swift in Sources */,
-				4478D1282BF309F400F86393 /* ItemViewController.swift in Sources */,
 				44FF336C2BF1E55D005DEEBD /* LocationModel.swift in Sources */,
 				44869F702BEAD74800EFF877 /* AppDelegate.swift in Sources */,
 				44FF33782BF2B8AB005DEEBD /* AddItemViewController.swift in Sources */,
 				443EF4B92BF45CFA005C1C6D /* AddSectionViewController.swift in Sources */,
-				44EAED682BEE06D90045FBCC /* ItemDetailViewController.swift in Sources */,
 				4474CE6A2BF5840C008EB4DC /* AddItemDetailViewController.swift in Sources */,
-				4478D1222BF3085700F86393 /* LocationViewController.swift in Sources */,
 				44FF33722BF1E833005DEEBD /* ContainerModel.swift in Sources */,
 				44FF33702BF1E81F005DEEBD /* SectionModel.swift in Sources */,
-				4478D1242BF3088300F86393 /* SectionViewController.swift in Sources */,
 				443EF4C12BF46183005C1C6D /* AddSectionTableViewCell.swift in Sources */,
-				4478D12C2BF317F600F86393 /* LocationTableViewCell.swift in Sources */,
-				4478D1302BF3480500F86393 /* ContainerTableViewCell.swift in Sources */,
 				44869F7A2BEAD74800EFF877 /* SmallBusinessInventoryApp.xcdatamodeld in Sources */,
 				443EF4BD2BF46139005C1C6D /* AddContainerTableViewCell.swift in Sources */,
-				4478D1262BF3094B00F86393 /* ContainerViewController.swift in Sources */,
 				44FF33422BF083B2005DEEBD /* DBManager.swift in Sources */,
-				4478D1322BF34CDE00F86393 /* ItemTableViewCell.swift in Sources */,
 				44869F722BEAD74800EFF877 /* SceneDelegate.swift in Sources */,
 				443EF4BB2BF46106005C1C6D /* AddContainerViewController.swift in Sources */,
 				443EF4AC2BF43EC0005C1C6D /* Container+CoreDataClass.swift in Sources */,
